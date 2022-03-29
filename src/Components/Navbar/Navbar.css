@@ -16,6 +16,7 @@
     width: 28px;
     height: 28px;
     transition: all 0.75s;
+    cursor: pointer;
 }
 .theme-toggle-btn span {
     font-size: 28px;
@@ -23,11 +24,40 @@
 .theme-toggle-btn.rotate {
     transform: rotate(180deg);
 }
+.user-profile-wrapper {
+    position: relative;
+}
 .navbar .avatar-text {
     border: none;
+    cursor: pointer;
 }
 .navbar .avatar-small {
     width: 40px;
     height: 40px;
     font-size: medium;
+}
+.user-dropdown {
+    position: absolute;
+    top: 4rem;
+    right: 1px;
+    padding: var(--padding-sm);
+    border-radius: 4px;
+    width: max-content;
+    height: max-content;
+    background-color: var(--clr-primary-faded);
+}
+.user-dropdown.arrow-top:after {
+    content: " ";
+    position: absolute;
+    right: 14px;
+    top: -12px;
+    border-top: none;
+    border-right: 12px solid transparent;
+    border-left: 12px solid transparent;
+    border-bottom: 12px solid var(--clr-primary-faded);
+}
+.user-dropdown .dropdown-btn {
+    font-weight: var(--fw-bold-600);
+    padding: 0 var(--padding-sm);
+    cursor: pointer;
 }

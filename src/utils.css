@@ -105,7 +105,45 @@
 .pa-24 {
     padding: 1.5rem;
 }
+/*  */
+.user-form-wrapper {
+    margin: 2rem auto;
+    max-width: 30rem;
+    width: 100%;
+}
+.user-form {
+    width: 100%;
+    border: 1px solid var(--clr-primary-faded);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+}
 
+.user-form label {
+    font-weight: var(--fw-bold-600);
+    font-size: 0.8rem;
+}
+.user-form .form-actions button {
+    width: 100%;
+    margin: 0 0 var(--margin-sm) 0;
+}
+.user-form .form-error {
+    color: var(--clr-error);
+    font-weight: var(--fw-bold-600);
+    padding: var(--padding-xs);
+    font-size: 0.8rem;
+}
+.user-form .form-error i {
+    margin-right: var(--margin-xs);
+}
+.user-form .input-toggle-wrapper {
+    position: relative;
+}
+.user-form .input-toggle-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    margin: 0;
+}
 /*  */
 .overflow-y-hidden {
     overflow-y: hidden;
