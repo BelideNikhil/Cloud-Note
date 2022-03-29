@@ -1,12 +1,13 @@
 import "./App.css";
-import { Navbar, Sidebar } from "./Components";
+import { Navbar, ToastWrapper } from "./Components";
+import PageRoutes from "./Routes/PageRoutes";
+
 function App() {
     return (
         <div className="App">
+            <ToastWrapper />
             <Navbar />
-            <div className="main-wrapper mt-8">
-                <Sidebar />
-            </div>
+            <PageRoutes />
         </div>
     );
 }

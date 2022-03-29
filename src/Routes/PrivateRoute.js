@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { useAuth } from "../Context/AuthContext";
 export default function PrivateRoute() {
     const {
-        authState: { isAuth },
+        authState: { token },
     } = useAuth();
-    return isAuth ? <Outlet /> : <Navigate to="/login " />;
+    return token ? <Outlet /> : <Navigate to="/login " />;
 }
