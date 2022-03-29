@@ -1,3 +1,4 @@
-import Navbar from "./Navbar/Navbar";
+import { Navbar } from "./Navbar/Navbar";
 import { Sidebar } from "./Sidebar/Sidebar";
-export { Navbar, Sidebar };
+import { ToastWrapper } from "./ToastWrapper/ToastWrapper";
+export { Navbar, Sidebar, ToastWrapper };
