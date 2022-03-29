@@ -1,0 +1,19 @@
+.header-search-form {
+    width: 25rem;
+    background-color: inherit;
+    border: 1px solid var(--clr-grey-light);
+    border-radius: var(--border-radius);
+}
+.header-search-form input {
+    flex: 1;
+    background-color: inherit;
+    border: none;
+}
+.header-search-form input:focus {
+    outline: none;
+}
+.header-search-mobile .header-search-form {
+    width: 95%;
+    margin: var(--margin-sm) auto;
+    box-shadow: var(--box-shadow-light);
+}

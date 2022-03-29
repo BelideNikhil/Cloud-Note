@@ -1,0 +1,16 @@
+.sidebar-wrapper {
+    height: 100%;
+}
+.sidebar {
+    width: 100%;
+}
+.sidebar-btn {
+    border-radius: 0 1.56rem 1.56rem 0;
+    text-align: justify;
+    font-weight: var(--fw-bold-600);
+    font-size: 1rem;
+    color: var(--clr-black);
+}
+.sidebar-btn.active {
+    background-color: var(--clr-primary-faded);
+}

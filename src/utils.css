@@ -1,0 +1,152 @@
+:root {
+    --clr-white: #fff;
+    --clr-faded-bg: rgba(0, 0, 0, 0.562);
+
+    /*font size */
+    --fs-large: 24px;
+    --fs-xl: 32px;
+
+    --border-radius: 4px;
+    --z-index-4: 4; /* scroll to top*/
+    --z-index-5: 5; /*product filter*/
+    --z-index-6: 6; /*mobile filter buttons*/
+    --z-index-10: 10; /* navbar*/
+    --z-index-11: 11; /*nav aside*/
+}
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* margin utils */
+.mt-8 {
+    margin-top: 0.5rem;
+}
+.mt-16 {
+    margin-top: 1rem;
+}
+.mt-24 {
+    margin-top: 1.5rem;
+}
+.mr-6 {
+    margin-right: 0.375rem;
+}
+.mr-8 {
+    margin-right: 0.5rem;
+}
+.mr-12 {
+    margin-right: 0.75rem;
+}
+.mr-16 {
+    margin-right: 1rem;
+}
+.mb-8 {
+    margin-bottom: 0.5rem;
+}
+.mb-12 {
+    margin-bottom: 0.75rem;
+}
+.mx-8 {
+    margin: 0.5rem 0;
+}
+.mx-12 {
+    margin: 0.75rem 0;
+}
+.mx-16 {
+    margin: 0 1rem;
+}
+.mx-4 {
+    margin: 0 4px;
+}
+.my-4 {
+    margin: 4px 0;
+}
+.ma-4 {
+    margin: 4px;
+}
+.mb-6 {
+    margin-bottom: 0.375rem;
+}
+.ma-8 {
+    margin: 0.5rem;
+}
+.ma-12 {
+    margin: 0.75rem;
+}
+.ma-16 {
+    margin: 1rem;
+}
+/* padding */
+.pl-16 {
+    padding-left: 1rem;
+}
+.px-12 {
+    padding: 0 0.75rem;
+}
+.px-16 {
+    padding: 0 1rem;
+}
+.py-12 {
+    padding: 0.75rem 0;
+}
+.py-16 {
+    padding: 1rem 0;
+}
+.pa-8 {
+    padding: 0.5rem;
+}
+.pa-12 {
+    padding: 0.75rem;
+}
+.pa-16 {
+    padding: 1rem;
+}
+.pa-24 {
+    padding: 1.5rem;
+}
+
+/*  */
+.overflow-y-hidden {
+    overflow-y: hidden;
+}
+.flex-row-start-center {
+    display: flex;
+    align-items: center;
+}
+.flex-row-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-clmn-start-start {
+    display: flex;
+    flex-direction: column;
+}
+.flex-clmn-center-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-size: 2rem;
+    font-weight: var(--fw--semi-bold-500);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+}
+.main-container {
+    width: 95%;
+    margin: auto;
+    min-height: 60vh;
+}
+.spacer-one {
+    height: 1rem;
+    width: 100%;
+}
+.spacer-two {
+    height: 2rem;
+    width: 100%;
+}

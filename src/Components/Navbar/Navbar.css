@@ -1,0 +1,33 @@
+.navbar-wrapper {
+    width: 100%;
+    box-shadow: var(--box-shadow-light);
+    height: 4.75rem;
+}
+.navbar-wrapper .navbar {
+    width: 95%;
+    height: 100%;
+    margin: auto;
+}
+.navbar .logo {
+    font-size: 1.3rem;
+    font-weight: var(--fw-bold-600);
+}
+.navbar .theme-toggle-btn {
+    width: 28px;
+    height: 28px;
+    transition: all 0.75s;
+}
+.theme-toggle-btn span {
+    font-size: 28px;
+}
+.theme-toggle-btn.rotate {
+    transform: rotate(180deg);
+}
+.navbar .avatar-text {
+    border: none;
+}
+.navbar .avatar-small {
+    width: 40px;
+    height: 40px;
+    font-size: medium;
+}
