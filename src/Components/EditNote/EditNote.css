@@ -9,5 +9,4 @@
 .edit-note-content {
     max-width: 30rem;
     background-color: var(--clr-whitesmoke);
-    position: absolute;
 }
