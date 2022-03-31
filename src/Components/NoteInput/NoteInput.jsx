@@ -8,7 +8,7 @@ const formatDate = () => dayjs().format("DD/MM/YY hh:mm:ss a");
 
 export function NoteInput() {
     const [inputData, setInputData] = useState(initialData);
-    const [txtAreaHeight, setTextAreaHeight] = useState(50);
+    const [txtAreaHeight, setTextAreaHeight] = useState(60);
     const textAreaRef = useRef(null);
     const { addNewNoteHandler } = useNotes();
     function formSubmitHandler(e) {
@@ -16,6 +16,7 @@ export function NoteInput() {
         if (inputData.title.trim() || inputData.note.trim()) {
             addNewNoteHandler({ ...inputData, createdAt: formatDate() });
             setInputData(initialData);
+            setTextAreaHeight(60);
         }
     }
     useEffect(() => {
