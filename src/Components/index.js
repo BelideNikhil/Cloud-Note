@@ -5,4 +5,5 @@ import { NotesList } from "./NotesList/NotesList";
 import { NoteInput } from "./NoteInput/NoteInput";
 import { NoteCard } from "./NoteCard/NoteCard";
 import { EditNote } from "./EditNote/EditNote";
-export { Navbar, Sidebar, ToastWrapper, NotesList, NoteCard, NoteInput, EditNote };
+import { ArchivedList } from "./ArchivedList/ArchivedList";
+export { Navbar, Sidebar, ToastWrapper, NotesList, NoteCard, NoteInput, EditNote, ArchivedList };

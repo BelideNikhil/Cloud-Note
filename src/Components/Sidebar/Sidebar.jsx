@@ -18,7 +18,7 @@ export function Sidebar() {
                 >
                     <span className="material-icons-outlined mx-16">label</span>Labels
                 </NavLink>
-                <NavLink to="/archive" className="sidebar-btn flex-row-start-center px-16 py-12 mb-6">
+                <NavLink to="/archives" className="sidebar-btn flex-row-start-center px-16 py-12 mb-6">
                     <span className="material-icons-outlined mx-16">archive</span>Archive
                 </NavLink>
                 <NavLink to="/trash" className="sidebar-btn flex-row-start-center px-16 py-12 mb-6">

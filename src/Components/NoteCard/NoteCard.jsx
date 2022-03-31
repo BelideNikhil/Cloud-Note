@@ -3,8 +3,14 @@ import "./NoteCard.css";
 import { noteActionTypes } from "../../Context/actionTypes";
 export function NoteCard({ currentNote }) {
     const { title, note, createdAt } = currentNote;
-    const { notesDispatchFuntion } = useNotes();
+    const {
+        notesDispatchFuntion,
+        moveToArchiveHandler,
+        restoreArchivedToNotes,
+        notesState: { archivedList },
+    } = useNotes();
     const { SET_EDIT_NOTE } = noteActionTypes;
+    const foundInArchives = archivedList.find((each) => each._id === currentNote._id);
     return (
         <div
             className="note pointer pa-12"
@@ -33,8 +39,15 @@ export function NoteCard({ currentNote }) {
                     <button className="pointer">
                         <span className="material-icons-outlined">label</span>
                     </button>
-                    <button className="pointer">
-                        <span className="material-icons-outlined">archive</span>
+                    <button
+                        className="pointer"
+                        onClick={(e) =>
+                            foundInArchives
+                                ? restoreArchivedToNotes(e, currentNote)
+                                : moveToArchiveHandler(e, currentNote)
+                        }
+                    >
+                        <span className="material-icons-outlined">{foundInArchives ? "unarchive" : "archive"}</span>
                     </button>
                     <button className="pointer">
                         <span className="material-icons-outlined">delete_outline</span>

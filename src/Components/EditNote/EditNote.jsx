@@ -83,7 +83,7 @@ export function EditNote({ currentEditNote }) {
                             type="submit"
                             disabled={!currentEditNote.title && !currentEditNote.note}
                         >
-                            Add Note
+                            Save Note
                         </button>
                     </div>
                 </div>
