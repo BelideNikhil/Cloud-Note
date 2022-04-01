@@ -1,3 +1,4 @@
 import { signupErrorReducer } from "./SignupErrorReducer";
 import { SignupUserReducer } from "./SignupUserReducer";
-export {signupErrorReducer,SignupUserReducer}
+import { notesReducerFunction } from "./notesReducer";
+export { signupErrorReducer, SignupUserReducer, notesReducerFunction };

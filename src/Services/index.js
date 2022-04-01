@@ -7,6 +7,11 @@ import { getArchivedList } from "./getArchivedListService";
 import { postToArchives } from "./postToArchivesService";
 import { restoreFromArchives } from "./restoreFromArchivesService";
 import { editNoteinArchives } from "./editNoteInArchivesService";
+import { postNoteToTrashService } from "./postNoteToTrashService";
+import { postArchiveToTrashService } from "./postArchiveToTrashService";
+import { getTrashListService } from "./getTrashListService";
+import { restoreFromTrashService } from "./restoreFromTrashService";
+import { deleteNoteFromTrashService } from "./deleteNoteFromTrashService";
 export {
     getLoginDetails,
     getSignupDetails,
@@ -17,4 +22,9 @@ export {
     postToArchives,
     restoreFromArchives,
     editNoteinArchives,
+    postNoteToTrashService,
+    postArchiveToTrashService,
+    getTrashListService,
+    restoreFromTrashService,
+    deleteNoteFromTrashService,
 };

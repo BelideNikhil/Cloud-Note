@@ -5,9 +5,9 @@ export function ArchivedList() {
     const {
         notesState: { archivedList },
     } = useNotes();
-    console.log(archivedList);
     return (
         <div className="archived-list-wrapper">
+            {archivedList?.length > 0 ? null : <h3 className="txt-center">No Archived Notes</h3>}
             {archivedList.map((each) => {
                 return <NoteCard key={each._id} currentNote={each} />;
             })}

@@ -1,11 +1,10 @@
-import { Sidebar, ArchivedList } from "../../Components";
-
-export function Archives() {
+import { Sidebar, TrashList } from "../../Components";
+export function Trash() {
     return (
         <div className="main-wrapper mt-8">
             <Sidebar />
             <div className="main">
-                <ArchivedList />
+                <TrashList />
             </div>
         </div>
     );
