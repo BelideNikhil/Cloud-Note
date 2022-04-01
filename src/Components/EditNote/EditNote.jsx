@@ -16,7 +16,7 @@ export function EditNote({ currentEditNote }) {
             editNoteHandler(editedNote);
             notesDispatchFuntion({
                 type: SET_EDIT_NOTE,
-                payload: { isEditing: false, currentEditNote: { title: "", note: "" } },
+                payload: { isEditing: false, currentEditNote: { title: "", note: "<p><br></p>" } },
             });
         }
     }
@@ -50,10 +50,10 @@ export function EditNote({ currentEditNote }) {
                 />
                 <div className="flex-row-spc-btw w-100 pa-8">
                     <div className="note-actions flex-row-spc-btw">
-                        <button className="pointer mx-4">
+                        <button className="pointer mx-4" type="button">
                             <span className="material-icons-outlined">palette</span>
                         </button>
-                        <button className="pointer mx-8">
+                        <button className="pointer mx-8" type="button">
                             <span className="material-icons-outlined">label</span>
                         </button>
                     </div>
@@ -66,6 +66,7 @@ export function EditNote({ currentEditNote }) {
                                     payload: { isEditing: false, currentEditNote: {} },
                                 })
                             }
+                            type="button"
                         >
                             Cancel
                         </button>
