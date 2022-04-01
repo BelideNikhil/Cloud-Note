@@ -6,16 +6,13 @@
 }
 
 .note-input-form input,
-.note-input-form textarea {
+.note-input-form .quill {
     border: none;
     width: 100%;
-    resize: none;
 }
-.note-input-form input:focus,
-.note-input-form textarea:focus {
+.note-input-form input:focus {
     outline: none;
 }
-
 .note-input-form .form-submit-btn {
     font-weight: var(--fw-bold-600);
     color: var(--clr-primary);

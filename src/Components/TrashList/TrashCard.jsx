@@ -8,7 +8,7 @@ export function TrashCard({ currentNote }) {
             <div className="content-wrapper">
                 <div>
                     <div className="note-title mb-6">{title}</div>
-                    <div className="note-text mb-6">{note}</div>
+                    <div className="note-text mb-6" dangerouslySetInnerHTML={{ __html: note }}></div>
                 </div>
             </div>
             <div className="flex-row-spc-btw mt-16">

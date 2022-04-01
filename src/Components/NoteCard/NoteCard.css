@@ -37,3 +37,16 @@
     color: #6d6b6b;
     font-size: 1.3rem;
 }
+
+/* quill */
+.note-text img {
+    max-width: 15rem;
+    display: block;
+}
+
+.note-text li {
+    margin-left: 1rem;
+}
+.note-text ul {
+    list-style: unset;
+}

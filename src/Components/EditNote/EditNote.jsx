@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
 import "./EditNote.css";
 import { useNotes } from "../../Context";
 import { noteActionTypes } from "../../Context/actionTypes";
+import { RichTextEditor } from "../RichTextEditor/RichTextEditor";
+
 export function EditNote({ currentEditNote }) {
-    const [txtAreaHeight, setTextAreaHeight] = useState(50);
-    const textAreaRef = useRef(null);
     const {
         editNoteHandler,
         notesDispatchFuntion,
@@ -21,11 +20,7 @@ export function EditNote({ currentEditNote }) {
             });
         }
     }
-    useEffect(() => {
-        if (textAreaRef.current) {
-            setTextAreaHeight(textAreaRef.current.scrollHeight);
-        }
-    }, [editedNote]);
+
     return (
         <div className="edit-note-wrapper flex-row-center-center">
             <form
@@ -44,16 +39,12 @@ export function EditNote({ currentEditNote }) {
                         })
                     }
                 />
-                <textarea
-                    ref={textAreaRef}
-                    className="pa-8"
-                    placeholder="Take a note..."
+                <RichTextEditor
                     value={currentEditNote.note}
-                    style={{ height: txtAreaHeight + "px" }}
-                    onChange={(e) =>
+                    setValue={(e) =>
                         notesDispatchFuntion({
                             type: SET_INPUT_NOTE_VALUES,
-                            payload: { type: "note", value: e.target.value },
+                            payload: { type: "note", value: e },
                         })
                     }
                 />
