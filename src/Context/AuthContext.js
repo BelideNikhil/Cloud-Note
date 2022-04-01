@@ -37,7 +37,7 @@ export function AuthProvider({ children }) {
             if (status === 200) {
                 toast.success(`Welcome back, ${data.foundUser.firstName} `, { id: toastId });
                 authDispatchFuntion({
-                    type: "SET_AUTH",
+                    type: SET_AUTH,
                     payload: { userName: data.foundUser.firstName, token: data.encodedToken },
                 });
                 localStorage.setItem(
@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
             }
         } catch (err) {
             toast.error("Login Error", { id: toastId });
-            authDispatchFuntion({ type: "SET_LOGIN_ERROR", payload: { error: err.response.data.errors[0] } });
+            authDispatchFuntion({ type: SET_LOGIN_ERROR, payload: { error: err.response.data.errors[0] } });
         }
     };
     const signupHandler = async (newUserData) => {
@@ -58,7 +58,7 @@ export function AuthProvider({ children }) {
             if (status === 201) {
                 toast.success(`Hello, ${data.createdUser.firstName} `, { id: toastId });
                 authDispatchFuntion({
-                    type: "SET_AUTH",
+                    type: SET_AUTH,
                     payload: { userName: data.createdUser.firstName, token: data.encodedToken },
                 });
                 localStorage.setItem(
@@ -69,18 +69,18 @@ export function AuthProvider({ children }) {
             }
         } catch (err) {
             toast.error("Sign Up Error", { id: toastId });
-            authDispatchFuntion({ type: "SET_SIGNUP_ERROR", payload: { error: err.response.data.errors[0] } });
+            authDispatchFuntion({ type: SET_SIGNUP_ERROR, payload: { error: err.response.data.errors[0] } });
         }
     };
     const logoutHandler = () => {
         toast.success(`Logged out`);
-        authDispatchFuntion({ type: "SET_AUTH_LOGOUT" });
+        authDispatchFuntion({ type: SET_AUTH_LOGOUT });
         localStorage.removeItem("cloud_note_jwt");
         navigate("/home");
     };
     return (
         <AuthContext.Provider
-            value={{ authState, authDispatchFuntion, userLoginHandler, navigate, signupHandler, logoutHandler }}
+            value={{ authState, authDispatchFuntion, userLoginHandler, signupHandler, logoutHandler }}
         >
             {children}
         </AuthContext.Provider>

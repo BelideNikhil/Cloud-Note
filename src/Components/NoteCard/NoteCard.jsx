@@ -7,10 +7,11 @@ export function NoteCard({ currentNote }) {
         notesDispatchFuntion,
         moveToArchiveHandler,
         restoreArchivedToNotes,
+        moveNoteToTrashHandler,
         notesState: { archivedList },
     } = useNotes();
     const { SET_EDIT_NOTE } = noteActionTypes;
-    const foundInArchives = archivedList.find((each) => each._id === currentNote._id);
+    const foundInArchives = archivedList?.find((each) => each._id === currentNote._id);
     return (
         <div
             className="note pointer pa-12"
@@ -49,7 +50,7 @@ export function NoteCard({ currentNote }) {
                     >
                         <span className="material-icons-outlined">{foundInArchives ? "unarchive" : "archive"}</span>
                     </button>
-                    <button className="pointer">
+                    <button className="pointer" onClick={(e) => moveNoteToTrashHandler(e, currentNote)}>
                         <span className="material-icons-outlined">delete_outline</span>
                     </button>
                 </div>
