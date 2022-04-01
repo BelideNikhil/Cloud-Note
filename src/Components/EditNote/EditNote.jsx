@@ -1,10 +1,9 @@
-import { useEffect, useRef, useState } from "react";
 import "./EditNote.css";
 import { useNotes } from "../../Context";
 import { noteActionTypes } from "../../Context/actionTypes";
+import { RichTextEditor } from "../RichTextEditor/RichTextEditor";
+
 export function EditNote({ currentEditNote }) {
-    const [txtAreaHeight, setTextAreaHeight] = useState(50);
-    const textAreaRef = useRef(null);
     const {
         editNoteHandler,
         notesDispatchFuntion,
@@ -17,15 +16,11 @@ export function EditNote({ currentEditNote }) {
             editNoteHandler(editedNote);
             notesDispatchFuntion({
                 type: SET_EDIT_NOTE,
-                payload: { isEditing: false, currentEditNote: { title: "", note: "" } },
+                payload: { isEditing: false, currentEditNote: { title: "", note: "<p><br></p>" } },
             });
         }
     }
-    useEffect(() => {
-        if (textAreaRef.current) {
-            setTextAreaHeight(textAreaRef.current.scrollHeight);
-        }
-    }, [editedNote]);
+
     return (
         <div className="edit-note-wrapper flex-row-center-center">
             <form
@@ -44,25 +39,21 @@ export function EditNote({ currentEditNote }) {
                         })
                     }
                 />
-                <textarea
-                    ref={textAreaRef}
-                    className="pa-8"
-                    placeholder="Take a note..."
+                <RichTextEditor
                     value={currentEditNote.note}
-                    style={{ height: txtAreaHeight + "px" }}
-                    onChange={(e) =>
+                    setValue={(e) =>
                         notesDispatchFuntion({
                             type: SET_INPUT_NOTE_VALUES,
-                            payload: { type: "note", value: e.target.value },
+                            payload: { type: "note", value: e },
                         })
                     }
                 />
                 <div className="flex-row-spc-btw w-100 pa-8">
                     <div className="note-actions flex-row-spc-btw">
-                        <button className="pointer mx-4">
+                        <button className="pointer mx-4" type="button">
                             <span className="material-icons-outlined">palette</span>
                         </button>
-                        <button className="pointer mx-8">
+                        <button className="pointer mx-8" type="button">
                             <span className="material-icons-outlined">label</span>
                         </button>
                     </div>
@@ -75,6 +66,7 @@ export function EditNote({ currentEditNote }) {
                                     payload: { isEditing: false, currentEditNote: {} },
                                 })
                             }
+                            type="button"
                         >
                             Cancel
                         </button>

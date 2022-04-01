@@ -1,0 +1,15 @@
+.quill .ql-editor {
+    min-height: 4rem;
+}
+.quill .ql-toolbar.ql-snow {
+    border: none;
+}
+.quill .ql-container.ql-snow {
+    border: none;
+    border-bottom: 1px solid var(--clr-grey-light);
+}
+
+.quill .ql-editor p img {
+    max-width: 14rem;
+    display: inline-block;
+}

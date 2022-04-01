@@ -25,7 +25,7 @@ export function NoteCard({ currentNote }) {
             <div className="content-wrapper">
                 <div>
                     <div className="note-title mb-6">{title}</div>
-                    <div className="note-text mb-6">{note}</div>
+                    <div className="note-text mb-6" dangerouslySetInnerHTML={{ __html: note }}></div>
                 </div>
                 <button className="pointer note-pin">
                     <span className="material-icons-outlined">push_pin</span>
