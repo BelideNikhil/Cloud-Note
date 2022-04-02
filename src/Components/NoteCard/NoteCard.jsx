@@ -67,12 +67,7 @@ export function NoteCard({ currentNote }) {
             </div>
             <div className="flex-row-spc-btw mt-16">
                 <div>{createdAt}</div>
-                {toggleColorPallete ? (
-                    <NoteColorPalette
-                        changeCurrentColorState={changeCurrentColorState}
-                        setToggleClrPallette={setToggleClrPallette}
-                    />
-                ) : null}
+                {toggleColorPallete ? <NoteColorPalette changeCurrentColorState={changeCurrentColorState} /> : null}
                 <div className="note-actions flex-row-spc-btw">
                     <button
                         className="pointer"

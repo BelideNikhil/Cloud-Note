@@ -49,7 +49,6 @@ export function NotesProvider({ children }) {
         }
     }
     async function editNoteHandler(currentNote) {
-        console.log("calling backedn");
         const foundInArchives = notesState.archivedList.find((each) => each._id === currentNote._id);
         if (token) {
             try {
@@ -57,7 +56,6 @@ export function NotesProvider({ children }) {
                     ? await editNoteinArchives({ currentNote, token })
                     : await editNoteService({ currentNote, token });
                 if (status === 201) {
-                    console.log("data from backend", data);
                     foundInArchives
                         ? notesDispatchFuntion({ type: SET_ARCHIVES, payload: { archivedList: data.archives } })
                         : notesDispatchFuntion({ type: SET_NOTES, payload: { notesList: data.notes } });
