@@ -1,9 +1,12 @@
 import "./EditNote.css";
+import { useState } from "react";
 import { useNotes } from "../../Context";
 import { noteActionTypes } from "../../Context/actionTypes";
 import { RichTextEditor } from "../RichTextEditor/RichTextEditor";
+import { NoteColorPalette } from "../NoteColorPalette/NoteColorPalette";
 
 export function EditNote({ currentEditNote }) {
+    const [toggleColorPallete, setToggleClrPallette] = useState(false);
     const {
         editNoteHandler,
         notesDispatchFuntion,
@@ -20,12 +23,12 @@ export function EditNote({ currentEditNote }) {
             });
         }
     }
-
     return (
         <div className="edit-note-wrapper flex-row-center-center">
             <form
-                className="note-input-form flex-clmn-center-center edit-note-content"
+                className="note-input-form flex-clmn-center-center edit-note-form"
                 onSubmit={editFormSubmitHandler}
+                style={{ backgroundColor: currentEditNote.bgColor }}
             >
                 <input
                     className="pa-8"
@@ -50,13 +53,18 @@ export function EditNote({ currentEditNote }) {
                 />
                 <div className="flex-row-spc-btw w-100 pa-8">
                     <div className="note-actions flex-row-spc-btw">
-                        <button className="pointer mx-4" type="button">
+                        <button
+                            className="pointer mx-4"
+                            type="button"
+                            onClick={() => setToggleClrPallette((prev) => !prev)}
+                        >
                             <span className="material-icons-outlined">palette</span>
                         </button>
                         <button className="pointer mx-8" type="button">
                             <span className="material-icons-outlined">label</span>
                         </button>
                     </div>
+                    {toggleColorPallete ? <NoteColorPalette /> : null}
                     <div>
                         <button
                             className="mx-8 pointer"

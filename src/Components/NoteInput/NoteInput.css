@@ -3,6 +3,7 @@
     border-radius: var(--border-radius);
     width: 32rem;
     background-color: var(--clr-whitesmoke);
+    margin-bottom: 3rem;
 }
 
 .note-input-form input,
@@ -13,6 +14,7 @@
 .note-input-form input:focus {
     outline: none;
 }
+
 .note-input-form .form-submit-btn {
     font-weight: var(--fw-bold-600);
     color: var(--clr-primary);
@@ -24,4 +26,8 @@
     font-weight: var(--fw-light-300);
     color: var(--clr-grey-light);
     cursor: not-allowed;
+}
+
+.note-input-form {
+    position: relative;
 }

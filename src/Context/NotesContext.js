@@ -15,6 +15,7 @@ import {
     getTrashListService,
     restoreFromTrashService,
     deleteNoteFromTrashService,
+    postNotePinService,
 } from "../Services";
 import { noteActionTypes } from "./actionTypes";
 const { SET_NOTES, UPDATED_NOTES_ARCHIVES, SET_ARCHIVES, SET_TRASH, UPDATED_NOTES_TRASH, UPDATED_ARCHIVES_TRASH } =
@@ -172,6 +173,25 @@ export function NotesProvider({ children }) {
             }
         }
     }
+    //
+    async function togglePinHandler(e, currentNote) {
+        e.stopPropagation();
+        if (token) {
+            try {
+                const { status, data } = await postNotePinService({ currentNote, token });
+                if (status === 200) {
+                    notesDispatchFuntion({ type: SET_NOTES, payload: { notesList: data.notes } });
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    }
+    async function togglePinInArchive(e, currentNote) {
+        e.stopPropagation();
+        await restoreArchivedToNotes(e, currentNote);
+        await togglePinHandler(e, currentNote);
+    }
     // notes
     useEffect(() => {
         if (token) {
@@ -235,6 +255,8 @@ export function NotesProvider({ children }) {
                 moveNoteToTrashHandler,
                 restoreFromTrash,
                 deleteNoteFromTrash,
+                togglePinHandler,
+                togglePinInArchive,
             }}
         >
             {children}

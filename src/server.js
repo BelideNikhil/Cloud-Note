@@ -14,6 +14,7 @@ import {
     getAllNotesHandler,
     updateNoteHandler,
     moveNoteToTrashHandler,
+    updateNotePinHandler,
 } from "./backend/controllers/NotesController";
 import {
     getAllTrashedNotesHandler,
@@ -58,8 +59,8 @@ export function makeServer({ environment = "development" } = {}) {
             this.post("/notes/:noteId", updateNoteHandler.bind(this));
             this.delete("/notes/:noteId", deleteNoteHandler.bind(this));
             this.post("/notes/archives/:noteId", archiveNoteHandler.bind(this));
-            // note to trash
             this.post("/notes/trash/:noteId", moveNoteToTrashHandler.bind(this));
+            this.post("/notes/pin/:noteId", updateNotePinHandler.bind(this));
 
             // archive routes (private)
             this.get("/archives", getAllArchivedNotesHandler.bind(this));
@@ -71,7 +72,7 @@ export function makeServer({ environment = "development" } = {}) {
             // trash routes (private)
             this.get("/trash", getAllTrashedNotesHandler.bind(this));
             this.post("/trash/restore/:noteId", restoreFromTrashHandler.bind(this));
-            this.post("/trash/delete/:noteId", deleteFromTrashHandler.bind(this));
+            this.delete("/trash/delete/:noteId", deleteFromTrashHandler.bind(this));
         },
     });
     return server;

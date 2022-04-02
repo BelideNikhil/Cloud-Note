@@ -5,8 +5,10 @@
     left: 0;
     width: 100%;
     height: 100vh;
+    z-index: var(--z-index-6);
 }
-.edit-note-content {
+.edit-note-form {
     max-width: 30rem;
     background-color: var(--clr-whitesmoke);
+    z-index: var(--z-index-6);
 }

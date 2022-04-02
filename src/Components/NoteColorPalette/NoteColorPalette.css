@@ -1,0 +1,17 @@
+.color-palette-wrapper {
+    display: flex;
+    background-color: inherit;
+    position: absolute;
+    bottom: -3rem;
+    left: 0;
+    background-color: whitesmoke;
+    box-shadow: var(--box-shadow-light);
+    border-radius: 4px;
+    z-index: var(--z-index-4);
+}
+.color-palette-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--clr-black);
+    border-radius: 50%;
+}
