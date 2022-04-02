@@ -5,13 +5,22 @@ export function NotesList() {
     const {
         notesState: { notesList },
     } = useNotes();
+    const pinnedList = notesList.filter((eachNote) => eachNote.isPinned);
+    const unPinned = notesList.filter((eachNote) => !eachNote.isPinned);
     return (
-        <div>
+        <>
+            {pinnedList.length ? <h4 className="w-100">Pinned</h4> : null}
             <ul className="notes-list-wrapper">
-                {notesList?.map((currentNote) => {
+                {pinnedList?.map((currentNote) => {
                     return <NoteCard key={currentNote._id} currentNote={currentNote} />;
                 })}
             </ul>
-        </div>
+            {pinnedList.length && unPinned.length ? <h4 className="w-100">Others</h4> : null}
+            <ul className="notes-list-wrapper">
+                {unPinned?.map((currentNote) => {
+                    return <NoteCard key={currentNote._id} currentNote={currentNote} />;
+                })}
+            </ul>
+        </>
     );
 }

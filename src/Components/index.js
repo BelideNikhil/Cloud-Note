@@ -7,4 +7,16 @@ import { NoteCard } from "./NoteCard/NoteCard";
 import { EditNote } from "./EditNote/EditNote";
 import { ArchivedList } from "./ArchivedList/ArchivedList";
 import { TrashList } from "./TrashList/TrashList";
-export { Navbar, Sidebar, ToastWrapper, NotesList, NoteCard, NoteInput, EditNote, ArchivedList, TrashList };
+import { NoteColorPalette } from "./NoteColorPalette/NoteColorPalette";
+export {
+    Navbar,
+    Sidebar,
+    ToastWrapper,
+    NotesList,
+    NoteCard,
+    NoteInput,
+    EditNote,
+    ArchivedList,
+    TrashList,
+    NoteColorPalette,
+};

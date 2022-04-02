@@ -4,7 +4,7 @@ export function TrashCard({ currentNote }) {
     const { title, note, createdAt } = currentNote;
     const { restoreFromTrash, deleteNoteFromTrash } = useNotes();
     return (
-        <div className="note pointer pa-12">
+        <div className="note pointer pa-12" style={{ backgroundColor: currentNote.bgColor }}>
             <div className="content-wrapper">
                 <div>
                     <div className="note-title mb-6">{title}</div>

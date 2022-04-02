@@ -12,6 +12,7 @@ import { postArchiveToTrashService } from "./postArchiveToTrashService";
 import { getTrashListService } from "./getTrashListService";
 import { restoreFromTrashService } from "./restoreFromTrashService";
 import { deleteNoteFromTrashService } from "./deleteNoteFromTrashService";
+import { postNotePinService } from "./postNotePinService";
 export {
     getLoginDetails,
     getSignupDetails,
@@ -27,4 +28,5 @@ export {
     getTrashListService,
     restoreFromTrashService,
     deleteNoteFromTrashService,
+    postNotePinService,
 };
