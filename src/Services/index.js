@@ -13,6 +13,7 @@ import { getTrashListService } from "./getTrashListService";
 import { restoreFromTrashService } from "./restoreFromTrashService";
 import { deleteNoteFromTrashService } from "./deleteNoteFromTrashService";
 import { postNotePinService } from "./postNotePinService";
+import { filterDeletedLabelService } from "./filterDeletedLabelService";
 export {
     getLoginDetails,
     getSignupDetails,
@@ -29,4 +30,5 @@ export {
     restoreFromTrashService,
     deleteNoteFromTrashService,
     postNotePinService,
+    filterDeletedLabelService,
 };

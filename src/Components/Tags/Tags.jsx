@@ -1,6 +1,7 @@
 import "./Tags.css";
 import { useTags } from "../../Context";
-
+import { tagsActionTypes } from "../../Context/actionTypes";
+const { CREATE_TAG, UPDATE_TAG_STATE, SET_TAG_INPUT } = tagsActionTypes;
 export function Tags() {
     const {
         tagsState: { globalTagsList, newTagText },
@@ -12,15 +13,14 @@ export function Tags() {
         e.preventDefault();
         const foundInTagList = globalTagsList.find((tag) => tag.tagName.toUpperCase() === newTagText.toUpperCase());
         if (!foundInTagList) {
-            tagsDispatchFunction({ type: "CREATE_TAG", payload: { tagName: newTagText } });
+            tagsDispatchFunction({ type: CREATE_TAG, payload: { tagName: newTagText } });
         } else {
-            console.log("err,tag duplicate found");
             tagsDispatchFunction({
-                type: "UPDATE_TAG_STATE",
+                type: UPDATE_TAG_STATE,
                 payload: { tagName: foundInTagList.tagName, tagState: true },
             });
         }
-        tagsDispatchFunction({ type: "TAG_INPUT", payload: { newTagText: "" } });
+        tagsDispatchFunction({ type: SET_TAG_INPUT, payload: { newTagText: "" } });
     }
 
     return (
@@ -31,7 +31,7 @@ export function Tags() {
                     value={newTagText}
                     placeholder="Create Tags..."
                     onChange={(e) =>
-                        tagsDispatchFunction({ type: "TAG_INPUT", payload: { newTagText: e.target.value } })
+                        tagsDispatchFunction({ type: SET_TAG_INPUT, payload: { newTagText: e.target.value } })
                     }
                 />
                 <button type="submit" className="add-tag-btn pointer">
@@ -50,7 +50,7 @@ export function Tags() {
                                           checked={tag.tagState}
                                           onChange={(e) =>
                                               tagsDispatchFunction({
-                                                  type: "UPDATE_TAG_STATE",
+                                                  type: UPDATE_TAG_STATE,
                                                   payload: { tagName: tag.tagName, tagState: e.target.checked },
                                               })
                                           }

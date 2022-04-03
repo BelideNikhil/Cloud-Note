@@ -33,13 +33,12 @@
     width: 24px;
     height: 24px;
 }
-.note-actions > * button {
+.note-actions > * {
     margin-left: var(--margin-xs);
-    transform: scale(0.99);
 }
 .note-actions button span {
     color: #6d6b6b;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 /* quill */

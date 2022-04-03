@@ -1,11 +1,11 @@
 import "./EditNote.css";
 import { useState, useEffect } from "react";
 import { useNotes, useTags } from "../../Context";
-import { noteActionTypes } from "../../Context/actionTypes";
+import { noteActionTypes, tagsActionTypes } from "../../Context/actionTypes";
 import { RichTextEditor, NoteColorPalette, Tags } from "../index";
 
 const { SET_EDIT_NOTE, SET_INPUT_NOTE_VALUES } = noteActionTypes;
-
+const { RESET_GLOBAL_TAG_STATES, SET_GLOBAL_TAGS_LIST } = tagsActionTypes;
 export function EditNote({ currentEditNote }) {
     const [toggleColorPallete, setToggleClrPallette] = useState(false);
     const [toggleTagModal, setToggleTagModal] = useState(false);
@@ -30,13 +30,13 @@ export function EditNote({ currentEditNote }) {
                 type: SET_EDIT_NOTE,
                 payload: { isEditing: false, currentEditNote: { title: "", note: "<p><br></p>" } },
             });
-            tagsDispatchFunction({ type: "RESET_GLOBAL_TAG_STATES" });
+            tagsDispatchFunction({ type: RESET_GLOBAL_TAG_STATES });
         }
     }
     useEffect(() => {
         if (isEditing) {
             tagsDispatchFunction({
-                type: "SET_GLOBAL_TAGS_LIST",
+                type: SET_GLOBAL_TAGS_LIST,
                 payload: { globalTagsList: currentTagsList },
             });
         }
@@ -104,7 +104,7 @@ export function EditNote({ currentEditNote }) {
                                         type: SET_EDIT_NOTE,
                                         payload: { isEditing: false, currentEditNote: {} },
                                     });
-                                    tagsDispatchFunction({ type: "RESET_GLOBAL_TAG_STATES" });
+                                    tagsDispatchFunction({ type: RESET_GLOBAL_TAG_STATES });
                                 }}
                                 type="button"
                             >

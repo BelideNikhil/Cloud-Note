@@ -1,43 +1,13 @@
 import { createContext, useContext, useReducer } from "react";
 import { useNotes, useAuth } from "./index";
-import axios from "axios";
+import { noteActionTypes, tagsActionTypes } from "./actionTypes";
+import { filterDeletedLabelService } from "../Services";
+import { tagsReducerFunction } from "../Reducers";
 const TagsContext = createContext();
-function tagsReducerFunction(tagsState, { type, payload }) {
-    switch (type) {
-        case "TAG_INPUT":
-            return { ...tagsState, newTagText: payload.newTagText };
-        case "CREATE_TAG":
-            return {
-                ...tagsState,
-                globalTagsList: [...tagsState.globalTagsList, { tagName: payload.tagName, tagState: false }],
-            };
-        case "REMOVE_TAG":
-            return {
-                ...tagsState,
-                globalTagsList: tagsState.globalTagsList.filter((eachTag) => eachTag.tagName !== payload.tagName),
-            };
-        case "UPDATE_TAG_STATE":
-            return {
-                ...tagsState,
-                globalTagsList: tagsState.globalTagsList.map((eachTag) =>
-                    eachTag.tagName === payload.tagName ? { ...eachTag, tagState: payload.tagState } : eachTag
-                ),
-            };
-        case "RESET_GLOBAL_TAG_STATES":
-            return {
-                ...tagsState,
-                newTagText: "",
-                globalTagsList: tagsState.globalTagsList.map((eachTag) => ({ ...eachTag, tagState: false })),
-            };
-        case "SET_GLOBAL_TAGS_LIST":
-            return {
-                ...tagsState,
-                globalTagsList: payload.globalTagsList,
-            };
-        default:
-            return tagsState;
-    }
-}
+
+const { REMOVE_TAG } = tagsActionTypes;
+const { SET_NOTES_TRASH_ARCHIVE } = noteActionTypes;
+
 export function TagsProvider({ children }) {
     const [tagsState, tagsDispatchFunction] = useReducer(tagsReducerFunction, {
         newTagText: "",
@@ -48,11 +18,7 @@ export function TagsProvider({ children }) {
             { tagName: "Chores", tagState: false },
         ],
     });
-    const {
-        editNoteHandler,
-        notesDispatchFuntion,
-        notesState: { archivedList },
-    } = useNotes();
+    const { editNoteHandler, notesDispatchFuntion } = useNotes();
     const {
         authState: { token },
     } = useAuth();
@@ -64,16 +30,11 @@ export function TagsProvider({ children }) {
     }
     async function deleteFormLabelhandler({ tag }) {
         try {
-            const { status, data } = await axios.post(
-                "/api/notes/updatetags",
-                { deletedLabel: tag.tagName },
-                { headers: { authorization: token } }
-            );
+            const { status, data } = await filterDeletedLabelService({ tag, token });
             if (status === 201) {
-                console.log(data);
-                tagsDispatchFunction({ type: "REMOVE_TAG", payload: { tagName: tag.tagName } });
+                tagsDispatchFunction({ type: REMOVE_TAG, payload: { tagName: tag.tagName } });
                 notesDispatchFuntion({
-                    type: "SET_NOTES_TRASH_ARCHIVE",
+                    type: SET_NOTES_TRASH_ARCHIVE,
                     payload: { notesList: data.notes, trashList: data.trash, archivedList: data.archives },
                 });
             }
