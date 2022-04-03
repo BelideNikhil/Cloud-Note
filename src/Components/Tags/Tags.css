@@ -1,0 +1,78 @@
+.tags-wrapper {
+    border: 1px solid var(--clr-primary-faded);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-light);
+    background-color: var(--clr-whitesmoke);
+    color: var(--clr-black);
+    display: flex;
+    flex-direction: column;
+    max-height: 15rem;
+    position: absolute;
+    top: 11.5rem;
+    left: 2.5rem;
+    z-index: var(--z-index-4);
+}
+
+.tags-form {
+    position: sticky;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid var(--clr-black);
+}
+.tags-form input {
+    border: none;
+    background-color: inherit;
+}
+.tags-form input:focus {
+    outline: none;
+}
+.tags-form .add-tag-btn > * {
+    font-size: 1.3rem;
+    color: var(--clr-black);
+}
+
+.tags-wrapper .tags-list {
+    height: 100%;
+    overflow-y: auto;
+}
+.tags-wrapper .tags-list label {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+}
+.tags-list label .delete-label-btn {
+    margin-left: auto;
+    color: #333;
+}
+.delete-label-btn span {
+    font-size: 1.2rem;
+}
+
+.tags-wrapper .tags-list input[type="checkbox"] {
+    accent-color: var(--clr-primary);
+    width: 0.9rem;
+    height: 0.9rem;
+}
+.tags-wrapper .tags-list label span {
+    max-width: 10rem;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}
+
+.tags-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--clr-whitesmoke);
+}
+
+.tags-list::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--clr-whitesmoke);
+}
+
+.tags-list::-webkit-scrollbar-thumb {
+    background-color: var(--clr-black);
+}

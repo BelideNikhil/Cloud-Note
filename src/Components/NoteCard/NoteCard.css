@@ -3,10 +3,12 @@
     flex-direction: column;
     border: 1px solid var(--clr-primary-faded);
     border-radius: var(--border-radius);
-    width: 100%;
+    min-width: 18rem;
+    max-width: 20rem;
     height: 100%;
     word-break: break-all;
     background-color: var(--clr-white);
+    position: relative;
 }
 .content-wrapper {
     display: grid;
@@ -17,6 +19,7 @@
 }
 .note:active {
     transform: scale(0.99);
+    z-index: 1;
 }
 
 .note .note-title {
@@ -30,10 +33,11 @@
     width: 24px;
     height: 24px;
 }
-.note-actions > button {
+.note-actions > * button {
     margin-left: var(--margin-xs);
+    transform: scale(0.99);
 }
-.note-actions > button > span {
+.note-actions button span {
     color: #6d6b6b;
     font-size: 1.3rem;
 }
@@ -49,4 +53,28 @@
 }
 .note-text ul {
     list-style: unset;
+}
+
+/* tag chips */
+.tag-chip-wrapper {
+    width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.tag-chip {
+    border: 1px solid var(--clr-black);
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    font-weight: var(--fw-bold-600);
+    color: var(--clr-black);
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 4px 6px;
+    margin: 0 4px;
+}
+.tag-chip .delete-icon {
+    font-size: 1.1rem;
+    margin-left: 8px;
 }

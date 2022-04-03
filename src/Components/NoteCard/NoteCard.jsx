@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect } from "react";
-import { useNotes } from "../../Context";
+import { useNotes, useTags } from "../../Context";
 import "./NoteCard.css";
 import { noteActionTypes } from "../../Context/actionTypes";
 import { NoteColorPalette } from "../NoteColorPalette/NoteColorPalette";
 const { SET_EDIT_NOTE } = noteActionTypes;
-
 export function NoteCard({ currentNote }) {
     const { title, note, createdAt, bgColor } = currentNote;
     const [toggleColorPallete, setToggleClrPallette] = useState(false);
@@ -19,6 +18,7 @@ export function NoteCard({ currentNote }) {
         editNoteHandler,
         notesState: { archivedList },
     } = useNotes();
+    const { deleteChipHandler } = useTags();
     const foundInArchives = archivedList?.find((each) => each._id === currentNote._id);
     function changeCurrentColorState(e, color) {
         e.stopPropagation();
@@ -32,7 +32,6 @@ export function NoteCard({ currentNote }) {
             }
         };
         document.addEventListener("mousedown", checkIfClickedOutside);
-
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutside);
         };
@@ -53,6 +52,21 @@ export function NoteCard({ currentNote }) {
                 <div>
                     <div className="note-title mb-6">{title}</div>
                     <div className="note-text mb-6" dangerouslySetInnerHTML={{ __html: note }}></div>
+                    {currentNote.tags.length ? (
+                        <div className="tag-chip-wrapper">
+                            {currentNote.tags.map((tag) => (
+                                <div className="tag-chip" key={tag}>
+                                    <span>{tag}</span>
+                                    <button
+                                        className="pointer"
+                                        onClick={(e) => deleteChipHandler({ e, tag, currentNote })}
+                                    >
+                                        <i className="delete-icon  far fa-times-circle"></i>
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                    ) : null}
                 </div>
                 <button
                     className="pointer note-pin"

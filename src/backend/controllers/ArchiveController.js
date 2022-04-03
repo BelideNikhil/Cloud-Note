@@ -136,3 +136,32 @@ export const moveArchivedToTrashHandler = function (schema, request) {
         );
     }
 };
+
+export const updateArchivesDeleteLabel = function (schema, request) {
+    const user = requiresAuth.call(this, request);
+    try {
+        if (!user) {
+            return new Response(
+                404,
+                {},
+                {
+                    errors: ["The email you entered is not Registered. Not Found error"],
+                }
+            );
+        }
+        const { deletedLabel } = JSON.parse(request.requestBody);
+        user.archives = user.archives.map((note) =>
+            note.tags.includes(deletedLabel) ? { ...note, tags: note.tags.filter((tag) => tag !== deletedLabel) } : note
+        );
+        this.db.users.update({ _id: user._id }, user);
+        return new Response(201, {}, { archives: user.archives });
+    } catch (error) {
+        return new Response(
+            500,
+            {},
+            {
+                error,
+            }
+        );
+    }
+};

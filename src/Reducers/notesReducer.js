@@ -29,6 +29,13 @@ export function notesReducerFunction(notesState, { type, payload }) {
             return { ...notesState, notesList: payload.notesList, trashList: payload.trashList };
         case UPDATED_ARCHIVES_TRASH:
             return { ...notesState, archivedList: payload.archivedList, trashList: payload.trashList };
+        case "SET_NOTES_TRASH_ARCHIVE":
+            return {
+                ...notesState,
+                notesList: payload.notesList,
+                archivedList: payload.archivedList,
+                trashList: payload.trashList,
+            };
         default:
             return notesState;
     }
