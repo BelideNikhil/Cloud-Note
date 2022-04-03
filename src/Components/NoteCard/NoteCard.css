@@ -19,7 +19,7 @@
 }
 .note:active {
     transform: scale(0.99);
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .note .note-title {
