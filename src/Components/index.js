@@ -8,6 +8,8 @@ import { EditNote } from "./EditNote/EditNote";
 import { ArchivedList } from "./ArchivedList/ArchivedList";
 import { TrashList } from "./TrashList/TrashList";
 import { NoteColorPalette } from "./NoteColorPalette/NoteColorPalette";
+import { Tags } from "./Tags/Tags";
+import { RichTextEditor } from "./RichTextEditor/RichTextEditor";
 export {
     Navbar,
     Sidebar,
@@ -19,4 +21,6 @@ export {
     ArchivedList,
     TrashList,
     NoteColorPalette,
+    Tags,
+    RichTextEditor,
 };

@@ -28,7 +28,7 @@ export function NotesProvider({ children }) {
         archivedList: [],
         trashList: [],
         isEditing: false,
-        currentEditNote: { title: "", note: "" },
+        currentEditNote: { title: "", note: "", bgColor: "#f5f5f5" },
     });
     const {
         authState: { token },

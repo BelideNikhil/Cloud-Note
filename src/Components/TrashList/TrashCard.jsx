@@ -11,6 +11,15 @@ export function TrashCard({ currentNote }) {
                     <div className="note-text mb-6" dangerouslySetInnerHTML={{ __html: note }}></div>
                 </div>
             </div>
+            {currentNote.tags.length ? (
+                <div className="tag-chip-wrapper">
+                    {currentNote.tags.map((tag) => (
+                        <div className="tag-chip" key={tag}>
+                            <span>{tag}</span>
+                        </div>
+                    ))}
+                </div>
+            ) : null}
             <div className="flex-row-spc-btw mt-16">
                 <div>{createdAt}</div>
                 <div className="note-actions flex-row-spc-btw">
