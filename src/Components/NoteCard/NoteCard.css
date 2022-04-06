@@ -25,6 +25,12 @@
 .note-text {
     word-break: break-all;
 }
+.note-text {
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}
 .note-pin {
     width: 24px;
     height: 24px;
@@ -84,5 +90,5 @@
 }
 
 .note .priority-field-wrapper {
-    top: 8.5rem;
+    bottom: -5.5rem;
 }

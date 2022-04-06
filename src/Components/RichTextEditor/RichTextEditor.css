@@ -1,5 +1,7 @@
 .quill .ql-editor {
     min-height: 4rem;
+    max-height: 14rem;
+    overflow-y: auto;
 }
 .quill .ql-toolbar.ql-snow {
     border: none;

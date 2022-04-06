@@ -4,7 +4,7 @@ export function PriorityField({ selectedPriority, changeSelectedPriorityHandler 
     return (
         <ul className="priority-field-wrapper" onClick={(e) => e.stopPropagation()}>
             <li>
-                <label>
+                <label className="pointer flex-row-start-center">
                     <input
                         type="radio"
                         value="1"
@@ -16,7 +16,7 @@ export function PriorityField({ selectedPriority, changeSelectedPriorityHandler 
                 </label>
             </li>
             <li>
-                <label>
+                <label className="pointer">
                     <input
                         type="radio"
                         name="priority"
@@ -28,7 +28,7 @@ export function PriorityField({ selectedPriority, changeSelectedPriorityHandler 
                 </label>
             </li>
             <li>
-                <label>
+                <label className="pointer">
                     <input
                         type="radio"
                         name="priority"

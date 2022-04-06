@@ -5,7 +5,7 @@
     box-shadow: var(--box-shadow-light);
     background-color: var(--clr-whitesmoke);
     position: absolute;
-    top: 11.5rem;
+    bottom: -5.5rem;
     left: 3rem;
     z-index: var(--z-index-4);
 }
@@ -13,11 +13,8 @@
     display: block;
     color: var(--clr-black);
     width: max-content;
-    cursor: pointer;
     font-size: 0.8rem;
     font-weight: var(--fw-bold-600);
-    display: flex;
-    align-items: center;
 }
 .priority-field-wrapper input[type="radio"] {
     accent-color: var(--clr-primary);
