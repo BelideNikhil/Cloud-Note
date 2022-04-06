@@ -9,8 +9,19 @@ const {
     SET_TRASH,
     UPDATED_NOTES_TRASH,
     UPDATED_ARCHIVES_TRASH,
+    SET_NOTES_TRASH_ARCHIVE,
+    SORT_BY_DATE,
+    SORT_BY_PRIORITY,
+    FILTER_BY_PRIORITY,
+    FILTER_BY_TAGS,
+    RESET_FILTERS,
 } = noteActionTypes;
-
+const filters = {
+    filterPriority: [],
+    filterTags: [],
+    sortByDate: "",
+    sortByPriority: "",
+};
 export function notesReducerFunction(notesState, { type, payload }) {
     switch (type) {
         case SET_NOTES:
@@ -29,13 +40,39 @@ export function notesReducerFunction(notesState, { type, payload }) {
             return { ...notesState, notesList: payload.notesList, trashList: payload.trashList };
         case UPDATED_ARCHIVES_TRASH:
             return { ...notesState, archivedList: payload.archivedList, trashList: payload.trashList };
-        case "SET_NOTES_TRASH_ARCHIVE":
+        case SET_NOTES_TRASH_ARCHIVE:
             return {
                 ...notesState,
                 notesList: payload.notesList,
                 archivedList: payload.archivedList,
                 trashList: payload.trashList,
             };
+        case SORT_BY_DATE:
+            return { ...notesState, filters: { ...notesState.filters, sortByDate: payload.value } };
+        case SORT_BY_PRIORITY:
+            return { ...notesState, filters: { ...notesState.filters, sortByPriority: payload.value } };
+        case FILTER_BY_PRIORITY:
+            const currentPriority = notesState.filters.filterPriority.includes(payload.value)
+                ? notesState.filters.filterPriority.filter((each) => each !== payload.value)
+                : [...notesState.filters.filterPriority, payload.value];
+            return {
+                ...notesState,
+                filters: { ...notesState.filters, filterPriority: [...currentPriority] },
+            };
+        case FILTER_BY_TAGS:
+            const currentTags = notesState.filters.filterTags.includes(payload.value)
+                ? notesState.filters.filterTags.filter((each) => each !== payload.value)
+                : [...notesState.filters.filterTags, payload.value];
+            return {
+                ...notesState,
+                filters: { ...notesState.filters, filterTags: [...currentTags] },
+            };
+        case RESET_FILTERS: {
+            return {
+                ...notesState,
+                filters: filters,
+            };
+        }
         default:
             return notesState;
     }
