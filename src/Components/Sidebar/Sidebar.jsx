@@ -1,13 +1,38 @@
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
-import { useTags } from "../../Context";
+import { useTags, useNavAside } from "../../Context";
+import { useEffect, useRef } from "react";
+
 export function Sidebar() {
     const {
         tagsState: { globalTagsList },
     } = useTags();
+    const { asideToggleSetterFunction, navAsideToggle } = useNavAside();
+    const navAsideRef = useRef(null);
+
+    useEffect(() => {
+        const checkIfClickedOutside = (e) => {
+            if (navAsideRef && navAsideRef.current && !navAsideRef.current.contains(e.target)) {
+                asideToggleSetterFunction(false);
+            }
+        };
+        document.addEventListener("mousedown", checkIfClickedOutside);
+        return () => {
+            document.removeEventListener("mousedown", checkIfClickedOutside);
+        };
+    }, [navAsideRef]);
     return (
-        <div className="sidebar-wrapper">
-            <div className="sidebar flex-clmn-start-start">
+        <div className={`sidebar-wrapper ${navAsideToggle ? "active" : ""}`}>
+            <div className="sidebar flex-clmn-start-start" ref={navAsideRef}>
+                <button
+                    className="nav-close-btn"
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        asideToggleSetterFunction(false);
+                    }}
+                >
+                    <span className="material-icons-outlined">close</span>
+                </button>
                 <NavLink
                     to="/home"
                     className={`sidebar-btn ${({ isActive }) =>

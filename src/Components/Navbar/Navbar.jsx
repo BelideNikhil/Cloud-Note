@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { NavSearch } from "./NavSearch";
-import { useTheme, useAuth } from "../../Context";
+import { useTheme, useAuth, useNavAside } from "../../Context";
 import { useState, useRef, useEffect } from "react";
 import { Filter } from "../Filter/Filter";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -10,6 +10,8 @@ export function Navbar() {
     const { themeToggle, toggleThemeFunction } = useTheme();
     const filterSectionRef = useRef(null);
     const currentLocation = useLocation().pathname;
+    const { asideToggleSetterFunction } = useNavAside();
+
     const navigate = useNavigate();
     const {
         logoutHandler,
@@ -33,25 +35,44 @@ export function Navbar() {
     return (
         <div className="navbar-wrapper">
             <div className="navbar flex-row-spc-btw">
-                <div className="logo flex-row-center-center">Cloud Note</div>
                 <div className="flex-row-spc-btw">
-                    <NavSearch />
-                    <div className="nav-filter-wrapper " ref={filterSectionRef}>
+                    {token ? (
                         <button
-                            className="flex-clmn-center-center nav-filter-btn pointer"
-                            onClick={() =>
-                                currentLocation === "/home"
-                                    ? setFilterToggle((prev) => !prev)
-                                    : (navigate("/home"), setFilterToggle((prev) => !prev))
-                            }
+                            className="mr-8 pointer nav-toggle-btn pointer "
+                            onClick={() => asideToggleSetterFunction(true)}
                         >
-                            <span className="material-icons-outlined">filter_alt</span> <span>Filters</span>
+                            <span className="material-icons-outlined">menu</span>
                         </button>
-                        {filterToggle ? <Filter /> : null}
+                    ) : null}
+                    <div className="logo flex-row-center-center" role="button" onClick={() => navigate("/home")}>
+                        Cloud Note
                     </div>
                 </div>
+                {token ? (
+                    <div className="flex-row-spc-btw header-search-web">
+                        <NavSearch />
+                    </div>
+                ) : null}
                 <div className="flex-row-center-center">
-                    <button className={`theme-toggle-btn ${themeToggle ? "rotate" : ""}`} onClick={toggleThemeFunction}>
+                    <div className="nav-filter-wrapper " ref={filterSectionRef}>
+                        {token ? (
+                            <button
+                                className="flex-clmn-center-center nav-filter-btn pointer"
+                                onClick={() =>
+                                    currentLocation === "/home"
+                                        ? setFilterToggle((prev) => !prev)
+                                        : (navigate("/home"), setFilterToggle((prev) => !prev))
+                                }
+                            >
+                                <span className="material-icons-outlined primary-accent">filter_alt</span>
+                            </button>
+                        ) : null}
+                        {filterToggle ? <Filter /> : null}
+                    </div>
+                    <button
+                        className={`theme-toggle-btn pointer ${themeToggle ? "rotate" : ""}`}
+                        onClick={toggleThemeFunction}
+                    >
                         <span className="material-icons-outlined primary-accent">
                             {themeToggle ? "light_mode" : "dark_mode"}
                         </span>
@@ -59,7 +80,7 @@ export function Navbar() {
                     {token ? (
                         <div className="user-profile-wrapper">
                             <div
-                                className="avatar avatar-text avatar-round avatar-small"
+                                className="avatar pointer avatar-text avatar-round avatar-small"
                                 onClick={() => setProfileToggle((prev) => !prev)}
                             >
                                 {userName.substring(0, 1).toUpperCase()}
@@ -77,6 +98,11 @@ export function Navbar() {
                     ) : null}
                 </div>
             </div>
+            {token ? (
+                <div className="header-search-mobile">
+                    <NavSearch />
+                </div>
+            ) : null}
         </div>
     );
 }

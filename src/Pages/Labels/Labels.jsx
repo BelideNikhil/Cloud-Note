@@ -12,7 +12,7 @@ export function Labels() {
         <div className="main-wrapper mt-8">
             <Sidebar />
             <div className="main">
-                {filteredByLabelList.length ? null : <h4 className="w-100">No Notes to show.</h4>}
+                {filteredByLabelList.length ? null : <h3 className="w-100 txt-center">No Notes to show.</h3>}
                 <ul className="notes-list-wrapper">
                     {filteredByLabelList?.map((currentNote) => {
                         return <NoteCard key={currentNote._id} currentNote={currentNote} />;

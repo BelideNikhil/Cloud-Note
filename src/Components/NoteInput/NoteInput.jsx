@@ -42,11 +42,6 @@ export function NoteInput() {
         falseStatesSetter();
         tagsDispatchFunction({ type: "RESET_GLOBAL_TAG_STATES" });
     }
-    function setCurrentFieldhandler(e, setterFunction) {
-        e.stopPropagation();
-        falseStatesSetter();
-        setterFunction(true);
-    }
     function formSubmitHandler(e) {
         e.preventDefault();
         if (inputData.title.trim() || inputData.note !== "<p><br></p>") {
@@ -96,21 +91,36 @@ export function NoteInput() {
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => setCurrentFieldhandler(e, setToggleClrPallette)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToggleClrPallette((prev) => !prev);
+                                    setToggleTagModal(false);
+                                    setTogglePriority(false);
+                                }}
                             >
                                 <span className="material-icons-outlined">palette</span>
                             </button>
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => setCurrentFieldhandler(e, setToggleTagModal)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToggleClrPallette(false);
+                                    setToggleTagModal((prev) => !prev);
+                                    setTogglePriority(false);
+                                }}
                             >
                                 <span className="material-icons-outlined">label</span>
                             </button>
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => setCurrentFieldhandler(e, setTogglePriority)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToggleClrPallette(false);
+                                    setToggleTagModal(false);
+                                    setTogglePriority((prev) => !prev);
+                                }}
                             >
                                 <span className="material-icons-outlined">signal_cellular_alt</span>
                             </button>
