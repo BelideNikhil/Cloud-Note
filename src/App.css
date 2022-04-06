@@ -12,3 +12,11 @@
     display: grid;
     grid-template-columns: 15rem 1fr;
 }
+.main-wrapper .main {
+    margin-bottom: 3rem;
+}
+@media screen and (max-width: 800px) {
+    .main-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

@@ -8,10 +8,13 @@
 
     --border-radius: 4px;
     --z-index-4: 4; /*color palette */
-    --z-index-5: 5; /* */
-    --z-index-6: 6; /* edit modal form */
-    --z-index-10: 10; /* */
-    --z-index-11: 11; /* */
+    --z-index-5: 5; /*filter-section */
+    --z-index-6: 6; /* */
+    --z-index-7: 7; /* */
+    --z-index-8: 8; /*navbar */
+    --z-index-9: 9; /**/
+    --z-index-10: 10; /*edit */
+    --z-index-11: 11; /* sidebar*/
 }
 .App {
     display: flex;
@@ -137,16 +140,16 @@
 /*  */
 .user-form-wrapper {
     margin: 2rem auto;
-    max-width: 30rem;
+    max-width: 32rem;
     width: 100%;
 }
 .user-form {
-    width: 100%;
+    width: 90%;
+    margin: auto;
     border: 1px solid var(--clr-primary-faded);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow-light);
 }
-
 .user-form label {
     font-weight: var(--fw-bold-600);
     font-size: 0.8rem;

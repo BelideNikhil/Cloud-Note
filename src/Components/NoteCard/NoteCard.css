@@ -92,3 +92,10 @@
 .note .priority-field-wrapper {
     bottom: -5.5rem;
 }
+
+@media screen and (max-width: 950px) {
+    .note {
+        max-width: 90%;
+        margin: auto;
+    }
+}
