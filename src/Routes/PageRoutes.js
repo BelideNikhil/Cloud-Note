@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import { Homepage, Login, Signup, Archives, Trash } from "../Pages";
+import { Homepage, Login, Signup, Archives, Trash, Labels } from "../Pages";
 import { useAuth } from "../Context";
 export default function PageRoutes() {
     const {
@@ -13,6 +13,7 @@ export default function PageRoutes() {
                     <Route path="/home" element={<Homepage />} />
                     <Route path="/archives" element={<Archives />} />
                     <Route path="/trash" element={<Trash />} />
+                    <Route path="/labels/:label" element={<Labels />} />
                 </Route>
                 {!token && (
                     <>

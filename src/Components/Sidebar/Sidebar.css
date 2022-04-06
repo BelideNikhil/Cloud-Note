@@ -14,3 +14,14 @@
 .sidebar-btn.active {
     background-color: var(--clr-primary-faded);
 }
+
+/*  */
+.sidebar-label {
+    line-clamp: 1;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    display: inline-block;
+
+    white-space: normal;
+}

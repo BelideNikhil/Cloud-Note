@@ -10,10 +10,6 @@
     background-color: var(--clr-white);
     position: relative;
 }
-.content-wrapper {
-    display: grid;
-    grid-template-columns: 9fr 0.7fr;
-}
 .note:hover {
     box-shadow: var(--box-shadow-light);
 }
@@ -28,6 +24,12 @@
 }
 .note-text {
     word-break: break-all;
+}
+.note-text {
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
 }
 .note-pin {
     width: 24px;
@@ -76,4 +78,17 @@
 .tag-chip .delete-icon {
     font-size: 1.1rem;
     margin-left: 8px;
+}
+
+.note .priority-tag {
+    border-radius: var(--border-radius);
+    border: 2px solid var(--clr-grey-light);
+    font-size: 0.75rem;
+    font-weight: var(--fw-bold-600);
+    padding: 0 var(--padding-sm);
+    color: var(--clr-black);
+}
+
+.note .priority-field-wrapper {
+    bottom: -5.5rem;
 }

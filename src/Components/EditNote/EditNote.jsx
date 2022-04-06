@@ -2,20 +2,22 @@ import "./EditNote.css";
 import { useState, useEffect } from "react";
 import { useNotes, useTags } from "../../Context";
 import { noteActionTypes, tagsActionTypes } from "../../Context/actionTypes";
-import { RichTextEditor, NoteColorPalette, Tags } from "../index";
+import { RichTextEditor, NoteColorPalette, Tags, PriorityField } from "../index";
 
 const { SET_EDIT_NOTE, SET_INPUT_NOTE_VALUES } = noteActionTypes;
 const { RESET_GLOBAL_TAG_STATES, SET_GLOBAL_TAGS_LIST } = tagsActionTypes;
 export function EditNote({ currentEditNote }) {
     const [toggleColorPallete, setToggleClrPallette] = useState(false);
     const [toggleTagModal, setToggleTagModal] = useState(false);
+    const [togglePriority, setTogglePriority] = useState(false);
+
     const {
         tagsState: { globalTagsList },
         tagsDispatchFunction,
     } = useTags();
     const {
         editNoteHandler,
-        notesDispatchFuntion,
+        notesDispatchFunction,
         notesState: { currentEditNote: editedNote, isEditing },
     } = useNotes();
     let currentTagsList = globalTagsList?.map((tag) => {
@@ -26,12 +28,31 @@ export function EditNote({ currentEditNote }) {
         if (editedNote.title.trim() || editedNote.note.trim()) {
             const selectedTags = globalTagsList.filter((tag) => tag.tagState).map((x) => x.tagName);
             editNoteHandler({ ...editedNote, tags: selectedTags });
-            notesDispatchFuntion({
+            notesDispatchFunction({
                 type: SET_EDIT_NOTE,
-                payload: { isEditing: false, currentEditNote: { title: "", note: "<p><br></p>" } },
+                payload: {
+                    isEditing: false,
+                    currentEditNote: { title: "", note: "<p><br></p>", selectedPriority: "" },
+                },
             });
             tagsDispatchFunction({ type: RESET_GLOBAL_TAG_STATES });
         }
+    }
+    function changeSelectedPriorityHandler(value) {
+        notesDispatchFunction({
+            type: SET_INPUT_NOTE_VALUES,
+            payload: { type: "selectedPriority", value },
+        });
+    }
+    function falseStatesSetter() {
+        setToggleClrPallette(false);
+        setToggleTagModal(false);
+        setTogglePriority(false);
+    }
+    function setCurrentFieldhandler(e, setterFunction) {
+        e.stopPropagation();
+        falseStatesSetter();
+        setterFunction(true);
     }
     useEffect(() => {
         if (isEditing) {
@@ -55,7 +76,7 @@ export function EditNote({ currentEditNote }) {
                         placeholder="Title"
                         value={currentEditNote.title}
                         onChange={(e) =>
-                            notesDispatchFuntion({
+                            notesDispatchFunction({
                                 type: SET_INPUT_NOTE_VALUES,
                                 payload: { type: "title", value: e.target.value },
                             })
@@ -64,7 +85,7 @@ export function EditNote({ currentEditNote }) {
                     <RichTextEditor
                         value={currentEditNote.note}
                         setValue={(e) =>
-                            notesDispatchFuntion({
+                            notesDispatchFunction({
                                 type: SET_INPUT_NOTE_VALUES,
                                 payload: { type: "note", value: e },
                             })
@@ -75,32 +96,37 @@ export function EditNote({ currentEditNote }) {
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setToggleTagModal(false);
-                                    setToggleClrPallette((prev) => !prev);
-                                }}
+                                onClick={(e) => setCurrentFieldhandler(e, setToggleClrPallette)}
                             >
                                 <span className="material-icons-outlined">palette</span>
                             </button>
                             <button
                                 className="pointer mx-8"
                                 type="button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setToggleClrPallette(false);
-                                    setToggleTagModal((prev) => !prev);
-                                }}
+                                onClick={(e) => setCurrentFieldhandler(e, setToggleTagModal)}
                             >
                                 <span className="material-icons-outlined">label</span>
                             </button>
+                            <button
+                                className="pointer mx-4"
+                                type="button"
+                                onClick={(e) => setCurrentFieldhandler(e, setTogglePriority)}
+                            >
+                                <span className="material-icons-outlined">signal_cellular_alt</span>
+                            </button>
                         </div>
                         {toggleColorPallete ? <NoteColorPalette /> : null}
+                        {togglePriority ? (
+                            <PriorityField
+                                selectedPriority={currentEditNote.selectedPriority}
+                                changeSelectedPriorityHandler={changeSelectedPriorityHandler}
+                            />
+                        ) : null}
                         <div>
                             <button
                                 className="mx-8 pointer"
                                 onClick={() => {
-                                    notesDispatchFuntion({
+                                    notesDispatchFunction({
                                         type: SET_EDIT_NOTE,
                                         payload: { isEditing: false, currentEditNote: {} },
                                     });

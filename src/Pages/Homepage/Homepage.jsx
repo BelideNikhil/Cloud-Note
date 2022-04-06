@@ -1,9 +1,5 @@
-import { Sidebar, NotesList, NoteInput, EditNote } from "../../Components";
-import { useNotes } from "../../Context";
+import { Sidebar, NotesList, NoteInput } from "../../Components";
 export function Homepage() {
-    const {
-        notesState: { isEditing, currentEditNote },
-    } = useNotes();
     return (
         <div className="main-wrapper mt-8">
             <Sidebar />

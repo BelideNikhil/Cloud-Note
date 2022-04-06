@@ -8,7 +8,7 @@
     flex-direction: column;
     max-height: 15rem;
     position: absolute;
-    top: 11.5rem;
+    bottom: -9.5rem;
     left: 2.5rem;
     z-index: var(--z-index-4);
 }
@@ -43,7 +43,7 @@
 }
 .tags-list label .delete-label-btn {
     margin-left: auto;
-    color: #333;
+    color: var(--clr-black);
 }
 .delete-label-btn span {
     font-size: 1.2rem;
@@ -55,7 +55,7 @@
     height: 0.9rem;
 }
 .tags-wrapper .tags-list label span {
-    max-width: 10rem;
+    max-width: 8rem;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     display: -webkit-box;
