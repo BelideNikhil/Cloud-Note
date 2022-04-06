@@ -10,6 +10,7 @@ import { TrashList } from "./TrashList/TrashList";
 import { NoteColorPalette } from "./NoteColorPalette/NoteColorPalette";
 import { Tags } from "./Tags/Tags";
 import { RichTextEditor } from "./RichTextEditor/RichTextEditor";
+import { PriorityField } from "./PriorityField/PriorityField";
 export {
     Navbar,
     Sidebar,
@@ -23,4 +24,5 @@ export {
     NoteColorPalette,
     Tags,
     RichTextEditor,
+    PriorityField,
 };
