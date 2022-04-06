@@ -15,7 +15,7 @@ export function Labels() {
                 {filteredByLabelList.length ? null : <h4 className="w-100">No Notes to show.</h4>}
                 <ul className="notes-list-wrapper">
                     {filteredByLabelList?.map((currentNote) => {
-                        return <NoteCard key={current._id} currentNote={currentNote} />;
+                        return <NoteCard key={currentNote._id} currentNote={currentNote} />;
                     })}
                 </ul>
             </div>
