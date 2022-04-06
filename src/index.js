@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, AuthProvider, NotesProvider, TagsProvider } from "./Context/";
+import { ThemeProvider, AuthProvider, NotesProvider, TagsProvider, NavAsideProvider } from "./Context/";
 
 // Call make Server
 makeServer();
@@ -15,7 +15,9 @@ ReactDOM.render(
                 <AuthProvider>
                     <NotesProvider>
                         <TagsProvider>
-                            <App />
+                            <NavAsideProvider>
+                                <App />
+                            </NavAsideProvider>
                         </TagsProvider>
                     </NotesProvider>
                 </AuthProvider>

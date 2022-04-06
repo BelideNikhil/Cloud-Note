@@ -40,6 +40,7 @@ export const noteActionTypes = {
     FILTER_BY_PRIORITY: "FILTER_BY_PRIORITY",
     FILTER_BY_TAGS: "FILTER_BY_TAGS",
     RESET_FILTERS: "RESET_FILTERS",
+    SET_SEARCH_TEXT: "SET_SEARCH_TEXT",
 };
 
 export const tagsActionTypes = {

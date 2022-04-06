@@ -1,5 +1,5 @@
 import { noteActionTypes } from "../Context/actionTypes";
-
+import { filterBySearchFunction } from "../Helpers";
 const {
     SET_EDIT_NOTE,
     SET_NOTES,
@@ -15,12 +15,14 @@ const {
     FILTER_BY_PRIORITY,
     FILTER_BY_TAGS,
     RESET_FILTERS,
+    SET_SEARCH_TEXT,
 } = noteActionTypes;
 const filters = {
     filterPriority: [],
     filterTags: [],
     sortByDate: "",
     sortByPriority: "",
+    filterBySearchText: "",
 };
 export function notesReducerFunction(notesState, { type, payload }) {
     switch (type) {
@@ -67,6 +69,8 @@ export function notesReducerFunction(notesState, { type, payload }) {
                 ...notesState,
                 filters: { ...notesState.filters, filterTags: [...currentTags] },
             };
+        case SET_SEARCH_TEXT:
+            return { ...notesState, filters: { ...notesState.filters, filterBySearchText: payload.value } };
         case RESET_FILTERS: {
             return {
                 ...notesState,

@@ -25,6 +25,7 @@ const filters = {
     filterTags: [],
     sortByDate: "",
     sortByPriority: "",
+    filterBySearchText: "",
 };
 const NotesContext = createContext();
 
