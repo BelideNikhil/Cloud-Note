@@ -6,7 +6,7 @@ const bgColorList = ["#f5f5f5", "#FBB3BD", "#fbccc4", "#c7b6e5", "#add6ea", "#ba
 
 export function NoteColorPalette({ changeCurrentColorState }) {
     const {
-        notesDispatchFuntion,
+        notesDispatchFunction,
         notesState: { isEditing },
     } = useNotes();
     const { SET_INPUT_NOTE_VALUES } = noteActionTypes;
@@ -24,7 +24,7 @@ export function NoteColorPalette({ changeCurrentColorState }) {
                         type="button"
                         onClick={(e) => {
                             if (isEditing) {
-                                notesDispatchFuntion({
+                                notesDispatchFunction({
                                     type: SET_INPUT_NOTE_VALUES,
                                     payload: { type: "bgColor", value: currentColor },
                                 });

@@ -1,16 +1,24 @@
 import "./NoteInput.css";
 import { useState, useEffect, useRef } from "react";
 import { useNotes, useTags } from "../../Context";
-import { RichTextEditor, NoteColorPalette, Tags } from "../index";
+import { RichTextEditor, NoteColorPalette, Tags, PriorityField } from "../index";
 import dayjs from "dayjs";
+const formatDate = () => dayjs().format("DD/MM/YY hh:mm:ss a");
 
-const initialData = { title: "", note: "<p><br></p>", bgColor: "#f5f5f5" };
-const formatDate = () => dayjs().format("DD/MM/YY hh:mm a");
+const initialData = {
+    title: "",
+    note: "<p><br></p>",
+    bgColor: "#f5f5f5",
+    selectedPriority: { Low: "1" },
+    isPinned: false,
+};
 
 export function NoteInput() {
     const [inputData, setInputData] = useState(initialData);
     const [toggleColorPallete, setToggleClrPallette] = useState(false);
     const [toggleTagModal, setToggleTagModal] = useState(false);
+    const [togglePriority, setTogglePriority] = useState(false);
+
     const noteInputRef = useRef(null);
     const {
         tagsState: { globalTagsList },
@@ -21,34 +29,48 @@ export function NoteInput() {
         e.stopPropagation();
         setInputData((prev) => ({ ...prev, bgColor: color }));
     }
+    function changeSelectedPriorityHandler(value) {
+        setInputData((prev) => ({ ...prev, selectedPriority: value }));
+    }
+    function falseStatesSetter() {
+        setToggleClrPallette(false);
+        setToggleTagModal(false);
+        setTogglePriority(false);
+    }
+    function resetFunction() {
+        setInputData(initialData);
+        falseStatesSetter();
+        tagsDispatchFunction({ type: "RESET_GLOBAL_TAG_STATES" });
+    }
+    function setCurrentFieldhandler(e, setterFunction) {
+        e.stopPropagation();
+        falseStatesSetter();
+        setterFunction(true);
+    }
     function formSubmitHandler(e) {
         e.preventDefault();
         if (inputData.title.trim() || inputData.note !== "<p><br></p>") {
             const selectedTags = globalTagsList.filter((tag) => tag.tagState).map((x) => x.tagName);
-            addNewNoteHandler({ ...inputData, createdAt: formatDate(), isPinned: false, tags: selectedTags });
-            setInputData(initialData);
-            setToggleClrPallette(false);
-            setToggleTagModal(false);
-            tagsDispatchFunction({ type: "RESET_GLOBAL_TAG_STATES" });
+            addNewNoteHandler({ ...inputData, tags: selectedTags, createdAt: formatDate() });
+            resetFunction();
         }
     }
     useEffect(() => {
         const checkIfClickedOutside = (e) => {
             if (
-                (toggleColorPallete || toggleTagModal) &&
+                (toggleColorPallete || toggleTagModal || togglePriority) &&
                 noteInputRef.current &&
                 !noteInputRef.current.contains(e.target)
             ) {
-                setToggleClrPallette(false);
-                setToggleTagModal(false);
+                falseStatesSetter();
             }
         };
         document.addEventListener("mousedown", checkIfClickedOutside);
-
         return () => {
             document.removeEventListener("mousedown", checkIfClickedOutside);
         };
-    }, [toggleColorPallete, toggleTagModal]);
+    }, [toggleColorPallete, toggleTagModal, togglePriority]);
+
     return (
         <div className="flex-row-center-center ma-16">
             <div className="note-input-wrapper" ref={noteInputRef}>
@@ -74,28 +96,33 @@ export function NoteInput() {
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setToggleTagModal(false);
-                                    setToggleClrPallette((prev) => !prev);
-                                }}
+                                onClick={(e) => setCurrentFieldhandler(e, setToggleClrPallette)}
                             >
                                 <span className="material-icons-outlined">palette</span>
                             </button>
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => {
-                                    e.stopPropagation();
-                                    setToggleClrPallette(false);
-                                    setToggleTagModal((prev) => !prev);
-                                }}
+                                onClick={(e) => setCurrentFieldhandler(e, setToggleTagModal)}
                             >
                                 <span className="material-icons-outlined">label</span>
+                            </button>
+                            <button
+                                className="pointer mx-4"
+                                type="button"
+                                onClick={(e) => setCurrentFieldhandler(e, setTogglePriority)}
+                            >
+                                <span className="material-icons-outlined">signal_cellular_alt</span>
                             </button>
                         </div>
                         {toggleColorPallete ? (
                             <NoteColorPalette changeCurrentColorState={changeCurrentColorState} />
+                        ) : null}
+                        {togglePriority ? (
+                            <PriorityField
+                                selectedPriority={inputData.selectedPriority}
+                                changeSelectedPriorityHandler={changeSelectedPriorityHandler}
+                            />
                         ) : null}
                         <button
                             className="form-submit-btn primary-accent pointer"

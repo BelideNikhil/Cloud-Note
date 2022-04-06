@@ -11,16 +11,20 @@ export function Tags() {
 
     function tagsFormhandler(e) {
         e.preventDefault();
-        const foundInTagList = globalTagsList.find((tag) => tag.tagName.toUpperCase() === newTagText.toUpperCase());
-        if (!foundInTagList) {
-            tagsDispatchFunction({ type: CREATE_TAG, payload: { tagName: newTagText } });
-        } else {
-            tagsDispatchFunction({
-                type: UPDATE_TAG_STATE,
-                payload: { tagName: foundInTagList.tagName, tagState: true },
-            });
+        if (newTagText.trim()) {
+            const foundInTagList = globalTagsList?.find(
+                (tag) => tag.tagName.toUpperCase() === newTagText.toUpperCase()
+            );
+            if (!foundInTagList) {
+                tagsDispatchFunction({ type: CREATE_TAG, payload: { tagName: newTagText } });
+            } else {
+                tagsDispatchFunction({
+                    type: UPDATE_TAG_STATE,
+                    payload: { tagName: foundInTagList.tagName, tagState: true },
+                });
+            }
+            tagsDispatchFunction({ type: SET_TAG_INPUT, payload: { newTagText: "" } });
         }
-        tagsDispatchFunction({ type: SET_TAG_INPUT, payload: { newTagText: "" } });
     }
 
     return (
@@ -39,7 +43,7 @@ export function Tags() {
                 </button>
             </form>
             <ul className="tags-list mt-8">
-                {globalTagsList.length
+                {globalTagsList?.length
                     ? globalTagsList.map((tag) => {
                           return (
                               <li key={tag.tagName}>

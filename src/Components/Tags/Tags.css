@@ -55,7 +55,7 @@
     height: 0.9rem;
 }
 .tags-wrapper .tags-list label span {
-    max-width: 10rem;
+    max-width: 8rem;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     display: -webkit-box;
