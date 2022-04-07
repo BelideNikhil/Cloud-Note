@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="https://the-cloud-note.netlify.app/">
+    <img src="https://raw.githubusercontent.com/BelideNikhil/gifstorage/master/Cloud-notes-assets/cloud-note-img.png" alt="cloud-note" width="900">
+  </a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">The Cloud Note</h1>
+<h3 align="center">Your goto notes app</h3>
 
-## Available Scripts
 
-In the project directory, you can run:
+## Pages and Features
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### [Home Page](https://the-cloud-note.netlify.app/home)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
++ Add Notes
+   + Create Labels
+   + Delete Labels
++ View Notes
++ Edit Notes
++ Archive Notes
++ Trash Notes
++ Search Notes
++ Filter and Sort notes by date, priority, and tags
++ Pin/ Un-Pin Notes
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### [Archive Page](https://the-cloud-note.netlify.app/archive)
 
-### `yarn build`
++ Edit a note
++ Move note to trash
++ Restore from Archives
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### [Archive Page](https://the-cloud-note.netlify.app/archive)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
++ Restore notes from trash
++ Permanently delete a note
 
-### `yarn eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### [Label Page](https://the-cloud-note.netlify.app/labels/Shopping)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
++ User can view all the notes related a particular Label
++ These Labels are dynamic and can be added/ deleted from any page except trash
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### [Login Page](https://the-cloud-note.netlify.app/login)
 
-## Learn More
++ Login
++ Guest Login
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### [Signup Page](https://the-cloud-note.netlify.app/signup)
 
-### Code Splitting
++ Sign Up
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+### Others
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
++ User can add/ delete/ labels from any page except Trash
++ Sidebar Labels are dynamic, they change based on label creation/ deletion
++ User can upload Images or videos links on notes
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+### [Live Link](https://the-cloud-note.netlify.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   + Guest Email: nikhil@gmail.com
+   + Guest Password: Password@123
+---
 
-### Deployment
+### Made Using
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
++ React for front-end
++ Mockbee as backend for Data management and Authentication
++ Google Icons for Icons
++ MaqUI Component Libaray for Styling
+   + #### [maqUI](https://maq-ui.netlify.app/)
+---
 
-### `yarn build` fails to minify
+![](https://github.com/BelideNikhil/gifstorage/blob/master/Cloud-notes-assets/react-cloud-note-gif.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+<p align="center">by Nikhil Belide</p>
