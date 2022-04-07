@@ -4,6 +4,9 @@
     border: 1px solid var(--clr-grey-light);
     border-radius: var(--border-radius);
 }
+.header-search-form:focus-within {
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
 .header-search-form input {
     flex: 1;
     background-color: inherit;
@@ -19,7 +22,6 @@
 }
 .header-search-mobile .header-search-form {
     width: 100%;
-    box-shadow: var(--box-shadow-light);
 }
 @media screen and (max-width: 800px) {
     .header-search-mobile {

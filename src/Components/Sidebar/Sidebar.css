@@ -20,7 +20,10 @@
 .sidebar-btn.active {
     background-color: var(--clr-primary-faded);
 }
-
+.sidebar-btn:active {
+    transform: scale(0.97);
+    transition: 0.1s ease-out;
+}
 /*  */
 .sidebar-label {
     line-clamp: 1;
