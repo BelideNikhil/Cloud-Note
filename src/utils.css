@@ -172,9 +172,13 @@
 }
 .user-form .input-toggle-btn {
     position: absolute;
-    top: 8px;
+    top: 6px;
     right: 8px;
     margin: 0;
+}
+.user-form .form-actions button:active {
+    transform: scale(0.99);
+    transition: 0.1ms ease-in-out;
 }
 /*  */
 .overflow-y-hidden {

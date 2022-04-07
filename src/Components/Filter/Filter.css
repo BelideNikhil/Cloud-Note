@@ -8,7 +8,7 @@
     position: absolute;
     top: 3rem;
     left: -11.5rem;
-    z-index: 5;
+    z-index: var(--z-index-5);
     display: flex;
     justify-content: space-between;
 }
@@ -31,10 +31,11 @@
 }
 .filter-content label {
     display: block;
-    color: var(--clr-grey-light);
+    color: var(--clr-black);
     width: max-content;
     font-size: 0.8rem;
     font-weight: var(--fw-bold-600);
+    margin-top: 8px;
 }
 .filter-content input[type="radio"] {
     accent-color: var(--clr-primary);

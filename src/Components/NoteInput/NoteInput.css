@@ -25,6 +25,7 @@
 }
 .note-input-form .form-submit-btn:active {
     transform: scale(0.9);
+    transition: 0.1ms ease;
 }
 .note-input-form .form-submit-btn:disabled {
     font-weight: var(--fw-light-300);

@@ -1,6 +1,4 @@
 .note {
-    display: flex;
-    flex-direction: column;
     border: 1px solid var(--clr-primary-faded);
     border-radius: var(--border-radius);
     min-width: 18rem;
@@ -13,11 +11,6 @@
 .note:hover {
     box-shadow: var(--box-shadow-light);
 }
-.note:active {
-    transform: scale(0.99);
-    z-index: 1;
-}
-
 .note .note-title {
     font-size: 1.1rem;
     font-weight: var(--fw--semi-bold-500);
@@ -42,7 +35,11 @@
     color: #6d6b6b;
     font-size: 1.4rem;
 }
-
+.note-actions button:active,
+.note-pin:active {
+    transform: scale(0.9);
+    transition: 0.1ms ease;
+}
 /* quill */
 .note-text img {
     max-width: 15rem;
@@ -64,14 +61,12 @@
     gap: 4px;
 }
 .tag-chip {
-    border: 1px solid var(--clr-black);
+    border: 1px solid var(--clr-grey-light);
     border-radius: 1rem;
     font-size: 0.8rem;
     font-weight: var(--fw-bold-600);
     color: var(--clr-black);
     width: max-content;
-    display: flex;
-    align-items: center;
     padding: 4px 6px;
     margin: 0 4px;
 }
