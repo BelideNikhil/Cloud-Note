@@ -129,7 +129,7 @@ export function EditNote({ currentEditNote }) {
                         ) : null}
                         <div>
                             <button
-                                className="mx-8 pointer cancel-edit-btn"
+                                className="mx-8 pointer"
                                 onClick={() => {
                                     notesDispatchFunction({
                                         type: SET_EDIT_NOTE,

@@ -44,11 +44,7 @@ export function Navbar() {
                             <span className="material-icons-outlined">menu</span>
                         </button>
                     ) : null}
-                    <div
-                        className="logo flex-row-center-center pointer"
-                        role="button"
-                        onClick={() => navigate("/home")}
-                    >
+                    <div className="logo flex-row-center-center" role="button" onClick={() => navigate("/home")}>
                         Cloud Note
                     </div>
                 </div>

@@ -26,15 +26,13 @@ export function NavSearch() {
                 onChange={searchHandler}
                 value={filters.filterBySearchText}
             />
-            {filters.filterBySearchText.length ? (
-                <button
-                    className="btn-icon btn-icon-sm clear-search-btn"
-                    type="button"
-                    onClick={() => notesDispatchFunction({ type: SET_SEARCH_TEXT, payload: { value: "" } })}
-                >
-                    <i className="fas fa-times"></i>
-                </button>
-            ) : null}
+            <button
+                className="btn-icon btn-icon-sm"
+                type="button"
+                onClick={() => notesDispatchFunction({ type: SET_SEARCH_TEXT, payload: { value: "" } })}
+            >
+                <i className="fas fa-times"></i>
+            </button>
         </form>
     );
 }

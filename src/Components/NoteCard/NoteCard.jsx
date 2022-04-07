@@ -47,8 +47,8 @@ export function NoteCard({ currentNote }) {
     return (
         <div
             ref={noteCardRef}
-            className="note pointer pa-12 flex-clmn-start-start"
-            style={{ backgroundColor: bgColor }}
+            className="note pointer pa-12"
+            style={{ backgroundColor: bgColor, position: "relative" }}
             onClick={() =>
                 notesDispatchFunction({
                     type: SET_EDIT_NOTE,
@@ -77,7 +77,7 @@ export function NoteCard({ currentNote }) {
                 {currentNote.tags.length ? (
                     <div className="tag-chip-wrapper">
                         {currentNote.tags.map((tag) => (
-                            <div className="tag-chip flex-row-start-center" key={tag}>
+                            <div className="tag-chip" key={tag}>
                                 <span>{tag.length > 10 ? `${tag.split("").splice(1, 10).join("")}...` : tag}</span>
                                 <button className="pointer" onClick={(e) => deleteChipHandler({ e, tag, currentNote })}>
                                     <i className="delete-icon  far fa-times-circle"></i>

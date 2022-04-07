@@ -15,10 +15,7 @@
     background-color: var(--clr-whitesmoke);
     z-index: var(--z-index-10);
 }
-.edit-note-form .cancel-edit-btn:active {
-    transform: scale(0.92);
-    transition: 0.1ms ease-in;
-}
+
 @media screen and (max-width: 600px) {
     .edit-note-form {
         max-width: 22rem;

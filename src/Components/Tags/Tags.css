@@ -30,6 +30,7 @@
     font-size: 1.3rem;
     color: var(--clr-black);
 }
+
 .tags-wrapper .tags-list {
     height: 100%;
     overflow-y: auto;
@@ -47,11 +48,7 @@
 .delete-label-btn span {
     font-size: 1.2rem;
 }
-.tags-list .delete-label-btn:active,
-.add-tag-btn:active {
-    transform: scale(0.95);
-    transition: 0.1ms ease-in-out;
-}
+
 .tags-wrapper .tags-list input[type="checkbox"] {
     accent-color: var(--clr-primary);
     width: 0.9rem;
