@@ -16,11 +16,11 @@ export function Filter() {
                 Clear
             </button>
             <div>
-                <ul className="filter-content">
+                <ul className="filter-content flex-clmn-start-start">
                     <h4>Sort By</h4>
                     <hr />
                     <li>
-                        <label>
+                        <label className="flex-row-start-center pointer">
                             <input
                                 type="radio"
                                 name="sort-by-date"
@@ -54,7 +54,7 @@ export function Filter() {
                     <h4>Sort By Priority</h4>
                     <hr />
                     <li>
-                        <label>
+                        <label className="flex-row-start-center pointer">
                             <input
                                 type="radio"
                                 name="sort-by-priority"
@@ -73,7 +73,7 @@ export function Filter() {
                     </li>
 
                     <li>
-                        <label>
+                        <label className="flex-row-start-center pointer">
                             <input
                                 type="radio"
                                 name="sort-by-priority"
@@ -95,7 +95,7 @@ export function Filter() {
                     <h4>Filter By Priority</h4>
                     <hr />
                     <li>
-                        <label>
+                        <label className="flex-row-start-center pointer">
                             <input
                                 type="checkbox"
                                 value="Low"
@@ -112,7 +112,7 @@ export function Filter() {
                         </label>
                     </li>
                     <li>
-                        <label>
+                        <label className="flex-row-start-center pointer">
                             <input
                                 type="checkbox"
                                 value="Medium"
@@ -129,7 +129,7 @@ export function Filter() {
                         </label>
                     </li>
                     <li>
-                        <label>
+                        <label className="flex-row-start-center pointer">
                             <input
                                 type="checkbox"
                                 value="High"
@@ -154,7 +154,7 @@ export function Filter() {
                     {globalTagsList.map((eachTag) => {
                         return (
                             <li key={eachTag.tagName}>
-                                <label>
+                                <label className="flex-row-start-center pointer">
                                     <input
                                         type="checkbox"
                                         value={eachTag.tagName}

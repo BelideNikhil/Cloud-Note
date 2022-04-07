@@ -32,7 +32,7 @@ export function EditNote({ currentEditNote }) {
                 type: SET_EDIT_NOTE,
                 payload: {
                     isEditing: false,
-                    currentEditNote: { title: "", note: "<p><br></p>", selectedPriority: "" },
+                    currentEditNote: { title: "", note: "<p><br></p>", selectedPriority: {} },
                 },
             });
             tagsDispatchFunction({ type: RESET_GLOBAL_TAG_STATES });
@@ -43,16 +43,6 @@ export function EditNote({ currentEditNote }) {
             type: SET_INPUT_NOTE_VALUES,
             payload: { type: "selectedPriority", value },
         });
-    }
-    function falseStatesSetter() {
-        setToggleClrPallette(false);
-        setToggleTagModal(false);
-        setTogglePriority(false);
-    }
-    function setCurrentFieldhandler(e, setterFunction) {
-        e.stopPropagation();
-        falseStatesSetter();
-        setterFunction(true);
     }
     useEffect(() => {
         if (isEditing) {
@@ -96,21 +86,36 @@ export function EditNote({ currentEditNote }) {
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => setCurrentFieldhandler(e, setToggleClrPallette)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToggleClrPallette((prev) => !prev);
+                                    setToggleTagModal(false);
+                                    setTogglePriority(false);
+                                }}
                             >
                                 <span className="material-icons-outlined">palette</span>
                             </button>
                             <button
                                 className="pointer mx-8"
                                 type="button"
-                                onClick={(e) => setCurrentFieldhandler(e, setToggleTagModal)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToggleClrPallette(false);
+                                    setToggleTagModal((prev) => !prev);
+                                    setTogglePriority(false);
+                                }}
                             >
                                 <span className="material-icons-outlined">label</span>
                             </button>
                             <button
                                 className="pointer mx-4"
                                 type="button"
-                                onClick={(e) => setCurrentFieldhandler(e, setTogglePriority)}
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setToggleClrPallette(false);
+                                    setToggleTagModal(false);
+                                    setTogglePriority((prev) => !prev);
+                                }}
                             >
                                 <span className="material-icons-outlined">signal_cellular_alt</span>
                             </button>

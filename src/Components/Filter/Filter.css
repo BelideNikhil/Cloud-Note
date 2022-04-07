@@ -1,23 +1,19 @@
 .filter-section-wrapper {
     border: 1px solid var(--clr-grey-light);
     border-radius: var(--border-radius);
-    padding: var(--padding-md);
+    padding: var(--padding-sm);
     box-shadow: var(--box-shadow-light);
     background-color: var(--clr-whitesmoke);
     width: max-content;
     position: absolute;
-    top: 4rem;
-    left: -5.5rem;
+    top: 3rem;
+    left: -11.5rem;
     z-index: 5;
     display: flex;
     justify-content: space-between;
 }
 .filter-section-wrapper > * {
-    padding: var(--padding-md);
-}
-.filter-content {
-    display: flex;
-    flex-direction: column;
+    padding: 2rem var(--padding-md) var(--padding-sm);
 }
 .filter-content label {
     display: block;
@@ -33,15 +29,12 @@
     height: 0.7rem;
     margin-right: var(--margin-xs);
 }
-.filter-content label label {
+.filter-content label {
     display: block;
     color: var(--clr-grey-light);
     width: max-content;
-    cursor: pointer;
     font-size: 0.8rem;
     font-weight: var(--fw-bold-600);
-    display: flex;
-    align-items: center;
 }
 .filter-content input[type="radio"] {
     accent-color: var(--clr-primary);
@@ -51,13 +44,13 @@
 }
 .clear-filter-btn {
     font-weight: var(--fw-bold-600);
-    border: 1px solid;
+    border: 2px solid var(--clr-grey-light);
     border-radius: var(--border-radius);
     background-color: inherit;
     padding: 2px;
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: 0.5rem;
+    right: 0.5rem;
 }
 .clear-filter-btn:active {
     transform: scale(1.02);

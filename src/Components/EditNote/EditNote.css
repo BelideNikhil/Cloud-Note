@@ -5,7 +5,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: var(--z-index-6);
+    z-index: var(--z-index-10);
 }
 .edit-note-modal .edit-note-wrapper {
     position: relative;
@@ -13,5 +13,13 @@
 .edit-note-form {
     max-width: 30rem;
     background-color: var(--clr-whitesmoke);
-    z-index: var(--z-index-6);
+    z-index: var(--z-index-10);
+}
+
+@media screen and (max-width: 600px) {
+    .edit-note-form {
+        max-width: 22rem;
+        width: 95%;
+        margin: auto;
+    }
 }

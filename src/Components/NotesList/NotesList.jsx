@@ -11,14 +11,14 @@ export function NotesList() {
     const unPinned = finalList.filter((eachNote) => !eachNote.isPinned);
     return (
         <>
-            {pinnedList.length ? <h4 className="w-100">Pinned</h4> : null}
             <ul className="notes-list-wrapper">
+                {pinnedList.length ? <h4 className="w-100">Pinned</h4> : null}
                 {pinnedList?.map((currentNote) => {
                     return <NoteCard key={currentNote._id} currentNote={currentNote} />;
                 })}
             </ul>
-            {pinnedList.length && unPinned.length ? <h4 className="w-100">Others</h4> : null}
             <ul className="notes-list-wrapper">
+                {pinnedList.length && unPinned.length ? <h4 className="w-100">Others</h4> : null}
                 {unPinned?.map((currentNote) => {
                     return <NoteCard key={currentNote._id} currentNote={currentNote} />;
                 })}

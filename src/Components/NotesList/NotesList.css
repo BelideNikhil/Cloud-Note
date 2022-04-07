@@ -8,3 +8,9 @@
 .notes-list-wrapper > * {
     width: 100%;
 }
+
+@media screen and (max-width: 950px) {
+    .notes-list-wrapper {
+        justify-content: center;
+    }
+}
