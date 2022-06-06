@@ -52,7 +52,6 @@ export function NotesProvider({ children }) {
                 }
             } catch (err) {
                 toast.error("Error Occured, Try Again.", { id: toastId });
-                console.log(err);
             }
         }
     }
@@ -71,7 +70,6 @@ export function NotesProvider({ children }) {
                 }
             } catch (err) {
                 toast.error("Error Occured, Try Again.");
-                console.log(err);
             }
         }
     }
@@ -90,7 +88,6 @@ export function NotesProvider({ children }) {
                 }
             } catch (err) {
                 toast.error("Error Occured, Try Again.", { id: toastId });
-                console.log(err);
             }
         }
     }
@@ -108,7 +105,6 @@ export function NotesProvider({ children }) {
                     });
                 }
             } catch (err) {
-                console.log(err);
                 toast.error("Error Occured, Try Again.", { id: toastId });
             }
         }
@@ -137,7 +133,6 @@ export function NotesProvider({ children }) {
                 }
             } catch (err) {
                 toast.error("Error Occured, Try Again.", { id: toastId });
-                console.log(err);
             }
         }
     }
@@ -157,7 +152,6 @@ export function NotesProvider({ children }) {
                 }
             } catch (err) {
                 toast.error("Error Occured, Try Again.", { id: toastId });
-                console.log(err);
             }
         }
     }
@@ -177,7 +171,6 @@ export function NotesProvider({ children }) {
                 }
             } catch (err) {
                 toast.error("Error Occured, Try Again.", { id: toastId });
-                console.log(err);
             }
         }
     }

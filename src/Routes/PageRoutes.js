@@ -11,7 +11,7 @@ export default function PageRoutes() {
             <Routes>
                 <Route element={<PrivateRoute />}>
                     <Route path="/home" element={<Homepage />} />
-                    <Route path="/" element={<Homepage />} />
+                    <Route path="/" element={<Navigate to="/home" />} />
                     <Route path="/archives" element={<Archives />} />
                     <Route path="/trash" element={<Trash />} />
                     <Route path="/labels/:label" element={<Labels />} />
