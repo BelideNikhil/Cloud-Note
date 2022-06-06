@@ -12,7 +12,7 @@ export function NoteColorPalette({ changeCurrentColorState }) {
     const { SET_INPUT_NOTE_VALUES } = noteActionTypes;
 
     return (
-        <div className="color-palette-wrapper pa-8">
+        <div className="color-palette-wrapper pa-8" onClick={(e) => e.stopPropagation()}>
             {bgColorList.map((currentColor) => {
                 return (
                     <button

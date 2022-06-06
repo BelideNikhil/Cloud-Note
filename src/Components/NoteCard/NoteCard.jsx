@@ -72,7 +72,7 @@ export function NoteCard({ currentNote }) {
                         </span>
                     </button>
                 </div>
-                <div className="note-title mb-6">{title}</div>
+                <div className="note-title mb-6 mt-8">{title}</div>
                 <div className="note-text mb-6" dangerouslySetInnerHTML={{ __html: note }}></div>
                 {currentNote.tags.length ? (
                     <div className="tag-chip-wrapper">

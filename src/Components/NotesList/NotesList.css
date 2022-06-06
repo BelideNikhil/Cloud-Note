@@ -8,9 +8,15 @@
 .notes-list-wrapper > * {
     width: 100%;
 }
-
-@media screen and (max-width: 950px) {
+.notes-list-wrapper .title-text {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+@media screen and (max-width: 1000px) {
     .notes-list-wrapper {
         justify-content: center;
+    }
+    .notes-list-wrapper .title-text {
+        text-align: center;
     }
 }

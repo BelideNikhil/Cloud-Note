@@ -33,8 +33,15 @@
     display: inline-block;
     white-space: normal;
 }
-.nav-close-btn {
+.sidebar-header {
     display: none;
+    position: absolute;
+    top: 0;
+    z-index: var(--z-index-9);
+    width: 100%;
+    padding: var(--padding-md);
+    background-color: whitesmoke;
+    border-bottom: 2px solid var(--clr-primary-faded);
 }
 @media screen and (max-width: 800px) {
     .sidebar-wrapper {
@@ -55,14 +62,10 @@
         position: relative;
         width: 17rem;
         height: 100%;
-        padding: 4rem 1rem 0 0;
+        padding: 5rem 1rem 0 0;
         overflow-y: auto;
     }
-    .nav-close-btn {
-        display: block;
-        position: absolute;
-        top: 0.5rem;
-        right: 0.5rem;
-        z-index: var(--z-index-9);
+    .sidebar-header {
+        display: flex;
     }
 }

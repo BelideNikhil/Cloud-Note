@@ -88,9 +88,9 @@
     bottom: -5.5rem;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1000px) {
     .note {
-        max-width: 90%;
+        max-width: 32rem;
         margin: auto;
     }
 }

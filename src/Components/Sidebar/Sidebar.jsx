@@ -24,15 +24,18 @@ export function Sidebar() {
     return (
         <div className={`sidebar-wrapper ${navAsideToggle ? "active" : ""}`}>
             <div className="sidebar flex-clmn-start-start" ref={navAsideRef}>
-                <button
-                    className="nav-close-btn"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        asideToggleSetterFunction(false);
-                    }}
-                >
-                    <span className="material-icons-outlined">close</span>
-                </button>
+                <div className="sidebar-header flex-row-spc-btw">
+                    <h3>Cloud Note</h3>
+                    <button
+                        className="nav-close-btn pointer"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            asideToggleSetterFunction(false);
+                        }}
+                    >
+                        <span className="material-icons-outlined">close</span>
+                    </button>
+                </div>
                 <NavLink
                     to="/home"
                     className={`sidebar-btn ${({ isActive }) =>
