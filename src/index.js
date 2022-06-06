@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, AuthProvider, NotesProvider, TagsProvider, NavAsideProvider } from "./Context";
+import { AuthProvider, NotesProvider, TagsProvider, NavAsideProvider } from "./Context";
 
 // Call make Server
 makeServer();
@@ -11,17 +11,15 @@ makeServer();
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <ThemeProvider>
-                <AuthProvider>
-                    <NotesProvider>
-                        <TagsProvider>
-                            <NavAsideProvider>
-                                <App />
-                            </NavAsideProvider>
-                        </TagsProvider>
-                    </NotesProvider>
-                </AuthProvider>
-            </ThemeProvider>
+            <AuthProvider>
+                <NotesProvider>
+                    <TagsProvider>
+                        <NavAsideProvider>
+                            <App />
+                        </NavAsideProvider>
+                    </TagsProvider>
+                </NotesProvider>
+            </AuthProvider>
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

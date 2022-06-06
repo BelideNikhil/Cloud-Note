@@ -18,25 +18,20 @@
     font-size: 1.3rem;
     font-weight: var(--fw-bold-600);
 }
-.navbar .theme-toggle-btn,
 .nav-filter-btn {
     width: 28px;
     height: 28px;
     transition: all 0.75s;
 }
-.theme-toggle-btn:active,
 .nav-filter-btn:active,
 .clear-search-btn {
     transform: scale(0.92);
     transition: 0.1ms;
 }
-.theme-toggle-btn span,
 .nav-filter-btn span {
     font-size: 28px;
 }
-.theme-toggle-btn.rotate {
-    transform: rotate(180deg);
-}
+
 .user-profile-wrapper {
     position: relative;
 }

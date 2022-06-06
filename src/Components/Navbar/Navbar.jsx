@@ -1,13 +1,12 @@
 import "./Navbar.css";
 import { NavSearch } from "./NavSearch";
-import { useTheme, useAuth, useNavAside } from "../../Context";
+import { useAuth, useNavAside } from "../../Context";
 import { useState, useRef, useEffect } from "react";
 import { Filter } from "../Filter/Filter";
 import { useLocation, useNavigate } from "react-router-dom";
 export function Navbar() {
     const [profileToggle, setProfileToggle] = useState(false);
     const [filterToggle, setFilterToggle] = useState(false);
-    const { themeToggle, toggleThemeFunction } = useTheme();
     const filterSectionRef = useRef(null);
     const currentLocation = useLocation().pathname;
     const { asideToggleSetterFunction } = useNavAside();
@@ -73,14 +72,6 @@ export function Navbar() {
                         ) : null}
                         {filterToggle ? <Filter /> : null}
                     </div>
-                    <button
-                        className={`theme-toggle-btn pointer ${themeToggle ? "rotate" : ""}`}
-                        onClick={toggleThemeFunction}
-                    >
-                        <span className="material-icons-outlined primary-accent">
-                            {themeToggle ? "light_mode" : "dark_mode"}
-                        </span>
-                    </button>
                     {token ? (
                         <div className="user-profile-wrapper">
                             <div
