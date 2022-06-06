@@ -1,13 +1,13 @@
 .filter-section-wrapper {
     border: 1px solid var(--clr-grey-light);
     border-radius: var(--border-radius);
-    padding: var(--padding-sm);
+    padding: var(--padding-sm) var(--padding-md);
     box-shadow: var(--box-shadow-light);
     background-color: var(--clr-whitesmoke);
     width: max-content;
     position: absolute;
     top: 3rem;
-    left: -11.5rem;
+    left: -12rem;
     z-index: var(--z-index-5);
     display: flex;
     justify-content: space-between;
@@ -30,17 +30,18 @@
     margin-right: var(--margin-xs);
 }
 .filter-content label {
-    display: block;
+    display: flex;
     color: var(--clr-black);
     width: max-content;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     font-weight: var(--fw-bold-600);
     margin-top: 8px;
 }
-.filter-content input[type="radio"] {
+.filter-content input[type="radio"],
+.filter-content input[type="checkbox"] {
     accent-color: var(--clr-primary);
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.9rem;
+    height: 0.9rem;
     margin-right: var(--margin-sm);
 }
 .clear-filter-btn {
@@ -48,7 +49,7 @@
     border: 2px solid var(--clr-grey-light);
     border-radius: var(--border-radius);
     background-color: inherit;
-    padding: 2px;
+    padding: 2px 0.75rem;
     position: absolute;
     top: 0.5rem;
     right: 0.5rem;

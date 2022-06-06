@@ -2,6 +2,9 @@ import { useNotes, useTags } from "../../Context";
 import "./Filter.css";
 import { noteActionTypes } from "../../Context/actionTypes";
 const { RESET_FILTERS, SORT_BY_DATE, FILTER_BY_TAGS, FILTER_BY_PRIORITY, SORT_BY_PRIORITY } = noteActionTypes;
+
+const prioritiesArray = ["Low", "Medium", "High"];
+
 export function Filter() {
     const {
         notesState: { filters },
@@ -10,6 +13,7 @@ export function Filter() {
     const {
         tagsState: { globalTagsList },
     } = useTags();
+
     return (
         <div className="filter-section-wrapper">
             <button className="clear-filter-btn pointer" onClick={() => notesDispatchFunction({ type: RESET_FILTERS })}>
@@ -51,100 +55,29 @@ export function Filter() {
                     </li>
                 </ul>
                 <ul className="filter-content">
-                    <h4>Sort By Priority</h4>
-                    <hr />
-                    <li>
-                        <label className="flex-row-start-center pointer">
-                            <input
-                                type="radio"
-                                name="sort-by-priority"
-                                value="lowToHigh"
-                                checked={filters.sortByPriority === "lowToHigh"}
-                                onChange={(e) => {
-                                    e.stopPropagation();
-                                    notesDispatchFunction({
-                                        type: SORT_BY_PRIORITY,
-                                        payload: { value: e.target.value },
-                                    });
-                                }}
-                            />
-                            Low-to-High
-                        </label>
-                    </li>
-
-                    <li>
-                        <label className="flex-row-start-center pointer">
-                            <input
-                                type="radio"
-                                name="sort-by-priority"
-                                value="highToLow"
-                                checked={filters.sortByPriority === "highToLow"}
-                                onChange={(e) => {
-                                    e.stopPropagation();
-                                    notesDispatchFunction({
-                                        type: SORT_BY_PRIORITY,
-                                        payload: { value: e.target.value },
-                                    });
-                                }}
-                            />
-                            High-to-Low
-                        </label>
-                    </li>
-                </ul>
-                <ul className="filter-content">
                     <h4>Filter By Priority</h4>
                     <hr />
-                    <li>
-                        <label className="flex-row-start-center pointer">
-                            <input
-                                type="checkbox"
-                                value="Low"
-                                checked={filters.filterPriority.includes("Low")}
-                                onChange={(e) => {
-                                    e.stopPropagation();
-                                    notesDispatchFunction({
-                                        type: FILTER_BY_PRIORITY,
-                                        payload: { value: e.target.value },
-                                    });
-                                }}
-                            />
-                            Low
-                        </label>
-                    </li>
-                    <li>
-                        <label className="flex-row-start-center pointer">
-                            <input
-                                type="checkbox"
-                                value="Medium"
-                                checked={filters.filterPriority.includes("Medium")}
-                                onChange={(e) => {
-                                    e.stopPropagation();
-                                    notesDispatchFunction({
-                                        type: FILTER_BY_PRIORITY,
-                                        payload: { value: e.target.value },
-                                    });
-                                }}
-                            />
-                            Medium
-                        </label>
-                    </li>
-                    <li>
-                        <label className="flex-row-start-center pointer">
-                            <input
-                                type="checkbox"
-                                value="High"
-                                checked={filters.filterPriority.includes("High")}
-                                onChange={(e) => {
-                                    e.stopPropagation();
-                                    notesDispatchFunction({
-                                        type: FILTER_BY_PRIORITY,
-                                        payload: { value: e.target.value },
-                                    });
-                                }}
-                            />
-                            High
-                        </label>
-                    </li>
+                    {prioritiesArray?.map((eachPriority) => {
+                        return (
+                            <li key={eachPriority}>
+                                <label className="flex-row-start-center pointer">
+                                    <input
+                                        type="checkbox"
+                                        value={eachPriority}
+                                        checked={filters.filterPriority.includes(eachPriority)}
+                                        onChange={(e) => {
+                                            e.stopPropagation();
+                                            notesDispatchFunction({
+                                                type: FILTER_BY_PRIORITY,
+                                                payload: { value: e.target.value },
+                                            });
+                                        }}
+                                    />
+                                    {eachPriority}
+                                </label>
+                            </li>
+                        );
+                    })}
                 </ul>
             </div>
             <div>
